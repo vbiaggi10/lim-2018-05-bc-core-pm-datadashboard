@@ -56,6 +56,16 @@ una empresa o de un servicio. Así, tenemos dashboards como los de:
 
 Los principales usuarios del producto son las Training Managers (TMs) de Laboratoria. Pero debido a la distancia entre nosotras y otros países, solo pudimos hacer una entrevista a Alejandra Ramirez, TM de Lima, y sacamos las siguientes conclusiones:
 
+Preguntas para la entrevista:
+
+1. ¿Qué es lo que normalmente haces para ver la data del progreso de las estudiantes?
+2. ¿Qué información buscas primero?
+3. ¿Qué es lo que usas y ves con más frecuencia?
+4. ¿En qué tipos de dispositivos ves la data?
+5. ¿Cuál es la finalidad de obtener esos datos? ¿Para qué los usas?
+6. ¿Qué es lo que te frustra de la aplicación?
+7. ¿Qué necesidades no están siendo satisfechas?
+
 Alejandra no tiene una interfaz que realmente le dé la data de las alumnas. El LMS recoge información y llega un documento excel con esa data solo en letras donde veía demasiada información en pestañas. Pero no tiene algo visual que pueda ver.
 
 La información más importante que Alejandra necesita es el resultado o porcentaje de completitud de ejercicios. En cuanto a lectura o quizzes no hay un orden de importante, ambos están en segundo lugar.
