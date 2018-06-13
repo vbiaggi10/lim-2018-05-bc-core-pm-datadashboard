@@ -52,7 +52,18 @@ una empresa o de un servicio. Así, tenemos dashboards como los de:
   para visualizar la información financiera de una empresa.
 
 
-## Objetivos de aprendizaje
+## Definición del producto
+
+Los principales usuarios del producto son las Training Managers (TMs) de Laboratoria. Pero debido a la distancia entre nosotras y otros países, solo pudimos hacer una entrevista a Alejandra Ramirez, TM de Lima, y sacamos las siguientes conclusiones:
+
+Alejandra no tiene una interfaz que realmente le dé la data de las alumnas. El LMS recoge información y llega un documento excel con esa data solo en letras donde veía demasiada información en pestañas. Pero no tiene algo visual que pueda ver.
+
+La información más importante que Alejandra necesita es el resultado o porcentaje de completitud de ejercicios. En cuanto a lectura o quizzes no hay un orden de importante, ambos están en segundo lugar.
+
+Si tuviera un data dashboard también lo utilizaría en un dispositivo móvil, pero más lo usaría en su laptop. 
+
+Esos datos le ayudan a ver el avance general para poder tomar decisiones a nivel general, para observar el progreso de las alumnas, para poder actuar de acuerdo a la información que recibe, si es que necesita tomar ciertas medidas con alumnas de manera individual.
+
 
 
 ## Tópicos a cubrir
@@ -60,196 +71,10 @@ una empresa o de un servicio. Así, tenemos dashboards como los de:
 
 ## Consideraciones generales
 
-La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
-frameworks, solo [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e).
-
-No se debe utilizar la _pseudo-variable_ `this`.
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_
-y _lines_, y un mínimo del 50% de _branches_. El _boilerplate_ ya contiene el
-setup y configuración necesaria para ejecutar los tests (pruebas) usando el
-comando `npm test`.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio que
-contiene el _boilerplate_.
-
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias y tests de ejemplo:
-
-```text
-./
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── data
-│   ├── cohorts
-│   │   └── lim-2018-03-pre-core-pw
-│   │       ├── progress.json
-│   │       └── users.json
-│   └── cohorts.json
-├── package.json
-├── src
-│   ├── data.js
-│   ├── index.html
-│   ├── main.js
-│   └── style.css
-└── test
-    ├── data.spec.js
-    ├── fixtures.js
-    ├── headless.js
-    └── index.html
-```
-
-La carpeta `data/` dentro del _boilerplate_ incluye un extracto de la data que
-podemos usar tanto en los tests como en la interfaz en sí.
-
-## Entregables
-
-Los criterios mínimos de aceptación para considerar que has completado este
-proyecto son:
-
-### User Experience Design
-
-#### 1) Definición del producto
-
-En el `README.md` cuéntanos cómo pensaste y te acercaste a los usuarios al
-desarrollar tu producto (Tip: entrevistas) y cuál fue tu proceso para definir
-el producto final a nivel de experiencia y de interfaz. Es importante que
-detalles:
-
-* Quiénes son los principales usuarios de producto.
-* Cuáles son los objetivos de estos usuarios en relación con el producto.
-* Cuáles son los datos más relevantes que quieren ver en la interfaz y
-  por qué. Cómo los descubriste.
-* Cuándo revisan normalmente estos datos los usuarios.
-* Cómo crees que el producto les está resolviendo sus problemas.
-* Cómo fue tu proceso de diseño.
-
-#### 2) Sketch de la solución (prototipo de baja fidelidad)
-
-Debes hacer un _sketch_ (boceto) de tu solución usando papel y lápiz, tomarle
-una foto, subirla a tu repositorio y hacer mención del _sketch_ en tu `README.md`.
-
-#### 3) Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
-
-Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés).
-Para eso debes aprender a utilizar alguna herramienta de diseño visual.
-Nosotros te recomendamos [Figma](https://www.figma.com/) que  es una herramienta
-que funciona en el navegador y, además, puedes crear una cuenta gratis. Sin
-embargo, eres libre de utilizar otros editores gráficos como
-Illustrator, Photoshop, PowerPoint, Keynote, etc.
-
-El diseño debe representar tu _ideal_ de solución. Digamos que es lo que
-desearías implementar si tuvieras tiempo ilimitado para hackear.
-
-Tu diseño debe seguir los fundamentos de _visual design_, como:
-contraste, alineación, jerarquía, entre otros. Tip: revisa el contenido de UX
-de la unidad de visual design.
-
-### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
-
-Luego de diseñar tu interfaz de usuario deberás trabajar en su implementación.
-Como mencionamos, **no** es necesario que construyas la interfaz tal como la
-diseñaste. Tendrás un tiempo limitado para hackear, así es que deberás priorizar.
-
-Como mínimo, tu implementación debe:
-
-1. Permitir al usuario seleccionar un cohort de una lista de cohorts.
-2. Al seleccionar un cohort:
-   - Listar las estudiantes de ese cohort
-   - Para cada estudiante:
-     + Calcular porcentaje de completitud de todos los _cursos_.
-     + Calcular grado de completitud de _lecturas_, _ejercicios autocorregidos_,
-       y _quizzes_.
-   - Ordenar estudiantes por completitud _general_ (porcentaje consumido/completado
-     de todos los cursos del cohort en cuestión), de _lecturas_, _ejercicios
-     autocorregidos_ y _quizzes_.
-   - Filtrar/buscar estudiantes por nombre.
-3. Visualizarse sin problemas desde distintos tamaños de pantallas: móviles,
-   tablets y desktops.
-4. Incluir pruebas unitarias.
-
-Es importante que tu interfaz, a pesar de ser una versión mínima de tu ideal,
-igual debe seguir los fundamentos de visual design, como: contraste,
-alineación, jerarquía, entre otros.
 
 ## Detalles de Implementación
 
-### data.js
 
-El corazón de este proyecto es la manipulación de datos a través de arreglos y
-objetos. La idea de este archivo es contener toda la funcionalidad
-que corresponda a obtener, procesar y manipular datos.
-
-Parte de un buen proyecto es que esté ordenado y que otras programadoras puedan
-acceder a el código rápidamente. Es por esto que este orden no es casualidad y
-es una convención que generalmente encontrarás en internet bajo el nombre MVC o
-Modelo Vista Controlador. En este proyecto Controlador y Modelo estarán bajo
-el archivo **data.js**.
-
-El _boilerplate_ incluye tests que esperan que implementes las
-siguientes 4 funciones y las _exportes_ al entorno global (`window`) dentro del
-script `src/data.js`, ten en cuenta que esto es solo lo básico, si necesitas más
-funciones puedes hacerlo:
-
-#### 1) `computeUsersStats(users, progress, courses)`
-
-Esta función es la responsable de "crear" la lista de usuarios (estudiantes)
-que vamos a "pintar" en la pantalla. La idea es "recorrer" el arreglo de
-usuarios (`users`) y calcular los indicadores necesarios de progreso para cada
-uno. La función debe devolver un nuevo arreglo de usuarios donde a cada objeto
-de usuario se le debe agregar una _propiedad_ con el nombre `stats` con las
-estadísticas calculadas.
-
-##### Argumentos
-
-* `users`: Arreglo de objetos obtenido de la data en bruto.
-* `progress`: Objeto de progreso en bruto. Contiene una llave para cada usuario
-  (`uid`) con un objeto que contiene el progreso del usuario para cada curso.
-* `courses`: Arreglo de _strings_ con los _ids_ de los cursos del cohort en
-  cuestión. Esta data se puede extraer de la propiedad `coursesIndex` de los
-  objetos que representan los _cohorts_.
-
-##### Valor de retorno
-
-Un arreglo de objetos `usersWithStats` con la propiedad `stats`, la cual debe ser un
-objeto con las siguientes propiedades:
-
-* `percent`: Número entero entre 0 y 100 que indica el porcentaje de completitud
-  general del usuario con respecto a todos los cursos asignados a su cohort.
-* `exercises`: Objeto con tres propiedades:
-  - `total`: Número total de ejercicios autocorregidos presentes en cursos del
-    cohort.
-  - `completed`: Número de ejercicios autocorregidos completados por el usuario.
-  - `percent`: Porcentaje de ejercicios autocorregidos completados.
-* `reads`: Objeto con tres propiedades:
-  - `total`: Número total de lecturas presentes en cursos del cohort.
-  - `completed`: Número de lecturas completadas por el usuario.
-  - `percent`: Porcentaje de lecturas completadas.
-* `quizzes`: Objeto con cinco propiedades:
-  - `total`: Número total de quizzes presentes en cursos del cohort.
-  - `completed`: Número de quizzes completadas por el usuario.
-  - `percent`: Porcentaje de quizzes completadas.
-  - `scoreSum`: Suma de todas las puntuaciones (score) de los quizzes
-    completados.
-  - `scoreAvg`: Promedio de puntuaciones en quizzes completados.
-
-#### 2) `sortUsers(users, orderBy, orderDirection)`
-
-La función `sortUsers()` se encarga de _ordenar_ la lista de usuarios creada con
-`computeUsersStats()` en base a `orderBy` y `orderDirection`.
-
-##### Argumentos
-
-* `users`: Arreglo de objetos creado con `computeUsersStats()`.
-* `orderBy`: String que indica el criterio de ordenado. Debe permitir ordenar
-  por nombre, porcentaje de completitud total, porcentaje de ejercicios
-  autocorregidos completados, porcentaje de quizzes completados, puntuación
-  promedio en quizzes completados, y porcentaje de lecturas completadas.
-* `orderDirection`: La dirección en la que queremos ordenar. Posibles valores:
-  `ASC` y `DESC` (ascendiente y descendiente).
 
 ##### Valor de retorno
 
@@ -258,23 +83,6 @@ Arreglo de usuarios ordenado.
 #### 3) `filterUsers(users, search)`
 
 ##### Argumentos
-
-* `users`: Arreglo de objetos creado con `computeUsersStats()`.
-* `search`: String de búsqueda.
-
-##### Valor de retorno
-
-Nuevo arreglo de usuarios incluyendo solo aquellos que cumplan la condición de
-filtrado, es decir, aquellos que contengan el string _search_ en el nombre
-(`name`) del usuario.
-
-#### 4) `processCohortData(options)`
-
-Esta función es la que deberíamos usar al seleccionar un cohort y cada vez que
-el usuario cambia los criterios de ordenado y filtrado en la interfaz. Esta
-función debe invocar internamente a `computeUsersStats()`, `sortUsers()` y
-`filterUsers()`.
-
 
 <!-- ### Habilidades blandas
 
