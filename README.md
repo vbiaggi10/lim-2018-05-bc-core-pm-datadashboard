@@ -94,7 +94,7 @@ Este producto resolverá el problema de las TMs de manera eficaz. Con esta inter
 
 El diseño de la interfaz está inspirado en el LMS de Laboratoria. Al hacer Log in y entrar, con la barra de la parte izquierda, se puede buscar la Sede y el ciclo que requieran. Luego podrán ver la información que hayan seleccionado. Asimismo, hay un botón de búsqueda en la parte superior; y al costado, un botón para ordenar la información de acuerdo a las opciones.
 
-Al principio usamos los mismos colores que el LMS: amarillo y blanco. Pero luego de un análisis, ocurrió la idea de usar el color menta en lugar del amarillo debido a que la interfaz no era para estudiantes. Las usuarias del producto son las TMs de Laboratoria, por lo que un cambio de color sería adecuado; no solo para diferenciar, sino para una mejor vista.
+Al principio usamos los mismos colores predominantes: amarillo y blanco. Pero luego, ocurrió la idea de usar el color menta en lugar del amarillo debido a que la interfaz no era para estudiantes. Sin embargo, al presentar la interfaz a la TM de Lima, nos dijo que el color amarillo siempre tenía que predominar; por lo tanto, cambiamos el color.
 
 
 ## Sketch (prototipo de baja fidelidad)
@@ -106,6 +106,8 @@ El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que
 
 
 ## Diseño de la Interfaz de Usuario
+
+
 
 
 ## Detalles de Implementación
