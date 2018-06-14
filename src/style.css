@@ -1,4 +1,4 @@
-/* GENETAL STUFF */
+/* GENERAL STUFF */
 body {
 	color: #2b2b2b;
 	font-family: 'Open Sans:400', sans-serif;
@@ -210,7 +210,7 @@ p {
 	width: calc(100% - 320px);
 	box-shadow: none;
 	color: rgba(0, 0, 0, 0.87);
-	background-color: #56f89a;
+	background-color: #ffe521;
 	top: 0;
 	left: auto;
 	right: 0;
@@ -270,10 +270,10 @@ p {
 .sortContainer{
 	width: 20%;
 	padding: 0.5% 0.3% 0.5% 0.3%;
-	background-color: #ffe521;
+	background-color: #56f89a;
 }
 .sortContainer select{
 	width: 100%;
 	border: none;
-	background-color: #ffe521;
+	background-color: #56f89a;
 }
