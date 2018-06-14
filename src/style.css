@@ -240,3 +240,40 @@ p {
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
+.searchsort{
+	width: calc(100% - 320px);
+	box-shadow: none;
+	color: rgba(0, 0, 0, 0.87);
+	top: 64px;
+	left: auto;
+	right: 0;
+	position: fixed;
+	display: flex;
+	z-index: 1100;
+	box-sizing: border-box;
+	flex-shrink: 0;
+}
+.searchContainer{
+	width: 80%;
+	padding: 0.5% 0.3% 0.5% 0.3%;
+	background-color: #fafafa;
+}
+.searchContainer form input{
+	width: 94%;
+	border: none;
+	background-color: #fafafa;
+}
+.searchContainer form a{
+	width: 6%;
+	cursor: pointer;
+}
+.sortContainer{
+	width: 20%;
+	padding: 0.5% 0.3% 0.5% 0.3%;
+	background-color: #ffe521;
+}
+.sortContainer select{
+	width: 100%;
+	border: none;
+	background-color: #ffe521;
+}
