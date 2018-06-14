@@ -54,32 +54,58 @@ una empresa o de un servicio. Así, tenemos dashboards como los de:
 
 ## Definición del producto
 
-Los principales usuarios del producto son las Training Managers (TMs) de Laboratoria. Pero debido a la distancia entre nosotras y otros países, solo pudimos hacer una entrevista a Alejandra Ramirez, TM de Lima, y sacamos las siguientes conclusiones:
+Los principales usuarios del producto son las Training Managers (TMs) de Laboratoria. Pero debido a la distancia entre nosotras y otros países, solo pudimos hacer una entrevista a Alejandra Ramirez, TM de Lima.
 
-Preguntas para la entrevista:
+#### Entrevista
+
+Después de investigar sobre entrevistas UX, se pensó en preguntas amplias y preguntas específicas, para realizar la entrevista.
+
+Al principio las preguntas fueron las siguientes:
 
 1. ¿Qué es lo que normalmente haces para ver la data del progreso de las estudiantes?
 2. ¿Qué información buscas primero?
-3. ¿Qué es lo que usas y ves con más frecuencia?
-4. ¿En qué tipos de dispositivos ves la data?
-5. ¿Cuál es la finalidad de obtener esos datos? ¿Para qué los usas?
+3. ¿Cuál es la información más importante?
+4. ¿Cuál es la finalidad de obtener esos datos? ¿Para qué los usas?
+5. ¿En qué tipo de dispositivo ves la información?
 6. ¿Qué es lo que te frustra de la aplicación?
 7. ¿Qué necesidades no están siendo satisfechas?
 
-Alejandra no tiene una interfaz que realmente le dé la data de las alumnas. El LMS recoge información y llega un documento excel con esa data solo en letras donde veía demasiada información en pestañas. Pero no tiene algo visual que pueda ver.
+Pero al hacer la entrevista a Alejandra, nos dijo que solo veía un documento lleno de datos; por lo tanto, algunas preguntas no fueron expresamente necesarias debido a la respuesta de la entrevistada, y otra pregunta se añadió: ¿Usarías tu celular para ver la información?
+
+**_Conclusiones_**
+
+Alejandra no tiene una interfaz que realmente le dé la data de las alumnas. El LMS recoge información y le llega un documento excel con demasiada data solo en letras. Pero no tiene algo visual que pueda usar. Por eso mira esa info en su computadora, no utiliza su celular porque es un documento demasiado grande.
+
+El documento excel no es user friendly. Si tuviera un data dashboard sí lo utilizaría en un dispositivo móvil, pero más lo usaría en su laptop.
 
 La información más importante que Alejandra necesita es el resultado o porcentaje de completitud de ejercicios. En cuanto a lectura o quizzes no hay un orden de importante, ambos están en segundo lugar.
 
-Si tuviera un data dashboard también lo utilizaría en un dispositivo móvil, pero más lo usaría en su laptop. 
+Esos datos le ayudan a ver el avance general para poder tomar decisiones a nivel general. También para observar el progreso individual de las alumnas, y así poder actuar de acuerdo a la información que recibe, si es que necesita tomar ciertas medidas con alumnas de manera individual o no.
 
-Esos datos le ayudan a ver el avance general para poder tomar decisiones a nivel general, para observar el progreso de las alumnas, para poder actuar de acuerdo a la información que recibe, si es que necesita tomar ciertas medidas con alumnas de manera individual.
+#### Usuarios
+
+El objetivo principal de las TMs es tener una interfaz donde puedan observar información de manera visual, ordenada, user friendly y funcional del progreso de las estudiantes en el LMS.
+
+Los datos más relevantes que quieren ver en la interfaz son los resultados en cuanto a la completitud de los ejercicios realizados por la alumna. Esto es debido a que así puede tomar decisiones a nivel general e individual para ayudar en el progreso de las estudiantes. Y esto lo descubrimos al hacer la entrevista.
+
+Este producto resolverá el problema de las TMs de manera eficaz. Con esta interfaz podrá ver los datos de una manera visual, simple, práctica, ordenada y puntual. Será más fácil ver la información necesaria.
+
+#### Proceso de diseño
+
+El diseño de la interfaz está inspirado en el LMS de Laboratoria. Al hacer Log in y entrar, con la barra de la parte izquierda, se puede buscar la Sede y el ciclo que requieran. Luego podrán ver la información que hayan seleccionado. Asimismo, hay un botón de búsqueda en la parte superior; y al costado, un botón para ordenar la información de acuerdo a las opciones.
+
+Al principio usamos los mismos colores que el LMS: amarillo y blanco. Pero luego de un análisis, ocurrió la idea de usar el color menta en lugar del amarillo debido a que la interfaz no era para estudiantes. Las usuarias del producto son las TMs de Laboratoria, por lo que un cambio de color sería adecuado; no solo para diferenciar, sino para una mejor vista.
 
 
+## Sketch (prototipo de baja fidelidad)
 
-## Tópicos a cubrir
+El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que, al entrevistar a Alejandra también le mostramos un avance de la idea que teníamos para la interfaz. Luego se fue adaptando de acuerdo a las respuestas dadas.
+
+![Sin titulo](http://thumbs.subefotos.com/e7782c2f428fa89bbbd3d66f82abac7bo.jpg)
+![Sin titulo](http://thumbs.subefotos.com/26536767a8a2c7f201c69e3e061462f6o.jpg)
 
 
-## Consideraciones generales
+## Diseño de la Interfaz de Usuario
 
 
 ## Detalles de Implementación
