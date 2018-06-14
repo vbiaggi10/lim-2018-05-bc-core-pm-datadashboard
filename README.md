@@ -101,8 +101,8 @@ Al principio usamos los mismos colores que el LMS: amarillo y blanco. Pero luego
 
 El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que, al entrevistar a Alejandra también le mostramos un avance de la idea que teníamos para la interfaz. Luego se fue adaptando de acuerdo a las respuestas dadas.
 
-![Sin titulo]()
-![Sin titulo]()
+![Sin titulo](/img/IMG_8201.jpg)
+![Sin titulo](/img/IMG_8203.jpg)
 
 
 ## Diseño de la Interfaz de Usuario
