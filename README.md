@@ -107,9 +107,9 @@ El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que
 
 ## Diseño de la Interfaz de Usuario
 
-![Sin titulo](/img/log in.jpg)
-![Sin titulo](/img/mockup dashboard.jpg)
-![Sin titulo](/img/data dashboard.jpg)
+![Sin titulo](/img/log_in.jpg)
+![Sin titulo](/img/mockup_dashboard.jpg)
+![Sin titulo](/img/data_dashboard.jpg)
 
 
 ## Detalles de Implementación
