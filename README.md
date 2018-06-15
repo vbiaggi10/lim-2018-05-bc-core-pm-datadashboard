@@ -107,22 +107,20 @@ El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que
 
 ## Diseño de la Interfaz de Usuario
 
+Usamos Figma para realizar el diseño.
+
 ![Sin titulo](/img/log_in.jpg)
 ![Sin titulo](/img/mockup_dashboard.jpg)
 ![Sin titulo](/img/data_dashboard.jpg)
 
+## Maquetación 
 
-## Detalles de Implementación
+Para construir la interfaz que hemos diseñado, empezamos con la estructura básica de HTML y un estilo básico de CSS. Tal como se explicó anteriormente, el diseño fue inspirado en el LMS de Laboratoria.
 
+Podemos ver una columna izquierda donde aparece la información de la TM que se ha conectado, también se puede elegir uno de los cohorts, y en la parte inferior se puede cerrar sesión. En la parte central y derecha aparece toda la información seleccionada, asimismo, una barra de búsqueda y la opción de filtrar datos. 
 
+Se ha usado el color amarillo de Laboratoria como color principal y el blanco y menta como colores secundarios.
 
-##### Valor de retorno
-
-Arreglo de usuarios ordenado.
-
-#### 3) `filterUsers(users, search)`
-
-##### Argumentos
 
 <!-- ### Habilidades blandas
 
@@ -149,28 +147,4 @@ esto necesitarás que tu demo tenga acceso desde cualquier computador y que
 puedas realizar una presentación que permita a todos comprender lo realizado.
 Sabemos que puede ser una instancia difícil, esperamos que logres mostrar su
 trabajo y los demás lo comprendan. -->
-
-## Primeros pasos
-
-1. Antes que nada, asegúrate de tener un :pencil: editor de texto en
-  condiciones, algo como [Atom](https://atom.io/) o
-  [Code](https://code.visualstudio.com/).
-2. Para ejecutar los comandos a continuación necesitarás una :shell:
-  [UNIX Shell](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/shell),
-  que es un programita que interpreta líneas de comando (command-line
-  interpreter) así como tener [git](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/scm/01-git)
-  instalado. Si usas un sistema operativo "UNIX-like", como GNU/Linux o MacOS,
-  ya tienes una _shell_ (terminal) instalada por defecto (y probablemente `git`
-  también). Si usas Windows puedes usar [Git bash](https://git-scm.com/download/win),
-  aunque recomendaría que consideres probar :penguin: GNU/Linux.
-3. Una de las integrantes del equipo debe realizar un :fork_and_knife: [fork](https://help.github.com/articles/fork-a-repo/)
-del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo. La otra integrante del equipo deber hacer un fork **del repositorio de su compañera** y [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) un `remote` hacia el mismo. 
-4. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-  tu _fork_ a tu computadora (copia local).
-5. 📦 Instala las dependencias del proyecto con el comando `npm
-  install`. Esto asume que has instalado [Node.js](https://nodejs.org/) (que
-  incluye [npm](https://docs.npmjs.com/)).
-6. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-  pruebas unitarias (unit tests) con el comando `npm test`.
-7. A codear se ha dicho! :rocket:
 
