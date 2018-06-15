@@ -10,7 +10,7 @@ venuesContainer.addEventListener('click', () => {
     for (let newStyle of choiceClassVenue) {
       newStyle.style.display = 'flex';
     }
-    venuesContainer.style.background = '#56f89a';
+    venuesContainer.style.background = '#ffe521';
     aux1 = 0;
   } else {
     for (let newStyle of choiceClassVenue) {
@@ -25,7 +25,7 @@ yearsContainer.addEventListener('click', () => {
     for (let newStyle of choiceClassYear) {
       newStyle.style.display = 'flex';
     }
-    yearsContainer.style.background = '#ffe521';
+    yearsContainer.style.background = '#56f89a';
     aux2 = 0;
   } else {
     for (let newStyle of choiceClassYear) {

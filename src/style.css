@@ -1,4 +1,4 @@
-/* GENETAL STUFF */
+/* GENERAL STUFF */
 body {
 	color: #2b2b2b;
 	font-family: 'Open Sans:400', sans-serif;
@@ -202,7 +202,7 @@ p {
 	margin-left: 320px;
 	margin-top: 60px;
 	padding: 36px;
-	width: 100%;
+	width: 75%;
 	min-height: 100vh;
 }
 
@@ -210,7 +210,7 @@ p {
 	width: calc(100% - 320px);
 	box-shadow: none;
 	color: rgba(0, 0, 0, 0.87);
-	background-color: #56f89a;
+	background-color: #ffe521;
 	top: 0;
 	left: auto;
 	right: 0;
@@ -270,10 +270,20 @@ p {
 .sortContainer{
 	width: 20%;
 	padding: 0.5% 0.3% 0.5% 0.3%;
-	background-color: #ffe521;
+	background-color: #56f89a;
 }
 .sortContainer select{
 	width: 100%;
 	border: none;
-	background-color: #ffe521;
+	background-color: #56f89a;
+}
+.studentsContainer{
+	width: 85%;
+}
+.container{
+	margin: 5%;
+	padding: 3%;
+	background-color: #fafafa;
+	width: 100%;
+	border: 0.5px solid #666666;
 }
