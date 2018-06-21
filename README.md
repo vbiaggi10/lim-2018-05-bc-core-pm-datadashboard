@@ -121,6 +121,9 @@ Podemos ver una columna izquierda donde aparece la información de la TM que se 
 
 Se ha usado el color amarillo de Laboratoria como color principal y el blanco y menta como colores secundarios.
 
+## Enlace a la interfaz
+
+[Con titulo](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/ "Data Dashboard")
 
 <!-- ### Habilidades blandas
 
