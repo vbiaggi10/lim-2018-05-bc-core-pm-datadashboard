@@ -3,17 +3,20 @@ body {
   height: 100%;
   margin: 0;
 }
+
 .logoContainer {
   width: 100%;
   background-color: #ffe521;
   text-align: center;
   vertical-align: middle;
 }
+
 .logo {
   width: 320px; 
   height: 80px;
   max-width: 500px;
 }
+
 .logInBar {
   align-items: center;
   justify-content: center;
@@ -21,6 +24,7 @@ body {
   font-size: 80%;
   display: flex;
 }
+
 form {
   margin: 50px;
   width: 50%;
@@ -29,6 +33,7 @@ form {
   border: 1px rgba(0, 0, 0, 0.5) outset;
   box-shadow: 1px 1px 1px rgb(44, 44, 44);
 }
+
 input {
   display: block;
   padding: 5px;
@@ -38,6 +43,7 @@ input {
   background-color: #EFEFEF;
   box-shadow: 2px 2px 2px rgb(49, 49, 49);
 }
+
 input[type="submit"] {
   background-color: #ffe521;
   cursor: pointer;
@@ -48,6 +54,7 @@ input[type="submit"] {
   vertical-align: middle;
   box-shadow: 2px 2px 2px rgb(49, 49, 49);
 }
+
 input[type="submit"]:hover {
   opacity: 1;
 }
