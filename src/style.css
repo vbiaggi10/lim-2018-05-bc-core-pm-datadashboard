@@ -166,12 +166,12 @@
         flex-shrink: 0;
     }
     .searchContainer {
-        width: 80%;
-        padding: 0.5% 0.3% 0.5% 0.3%;
+        width: 70%;
+        margin: 0.5% 0.3% 0.5% 0.3%;
         background-color: #fafafa;
     }
     .searchContainer form input {
-        width: auto;
+        width: 90%;
         border: none;
         background-color: #fafafa;
     }
@@ -180,8 +180,8 @@
         cursor: pointer;
     }
     .sortContainer {
-        width: 20%;
-        padding: 0.5% 0.3% 0.5% 0.3%;
+        width: 30%;
+        margin: 0.5% 0.3% 0.5% 0.3%;
         background-color: #56f89a;
     }
     .sortContainer select {

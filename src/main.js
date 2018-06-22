@@ -101,57 +101,6 @@ function functionUser(users, progress, courses) {
     userData.appendChild(container);
 
   }
-  /* let usersWithStats = computeUsersStats(users, progress, courses);
-  usersWithStats.map(
-    userWithStats => {
-      let myName = document.createElement('h1');
-      let myID = document.createElement('p');
-      let myRole = document.createElement('p');
-      let myProgress = document.createElement('p');
-      let myUnits = document.createElement('p');
-      let myTotal = document.createElement('p');
-      let myCompleted = document.createElement('p');
-      let myPercent = document.createElement('p');
-      let container = document.createElement('div');
-      let photo = document.createElement('img');
-      let img = 'img/woman.png';
-
-
-      const name = document.createTextNode(userWithStats.name);
-      const id = document.createTextNode(userWithStats.id);
-      const role = document.createTextNode(userWithStats.role);
-      let total;
-      let completed;
-      let percent;
-      if (userWithStats.hasOwnProperty('stats')) {
-        total = document.createTextNode(userWithStats.stats.exercises.total);
-        completed = document.createTextNode(userWithStats.stats.exercises.completed);
-        percent = document.createTextNode(userWithStats.stats.exercises.percent);
-      }
-      else {
-        total = document.createTextNode('---');
-        completed = document.createTextNode('---');
-        percent = document.createTextNode('---');
-      }
-
-      myName.appendChild(name);
-      myTotal.appendChild(total);
-      myCompleted.appendChild(completed);
-      myPercent.appendChild(percent);
-
-      container.appendChild(photo);
-      container.appendChild(myName);
-      container.appendChild(myID);
-      container.appendChild(myRole);
-      container.appendChild(myProgress);
-      container.appendChild(myTotal);
-      container.appendChild(myCompleted);
-      container.appendChild(myPercent);
-
-      userData.appendChild(container);
-
-    }
-  ); */
 }
 
 

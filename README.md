@@ -123,7 +123,7 @@ Se ha usado el color amarillo de Laboratoria como color principal y el blanco y 
 
 ## Enlace a la interfaz
 
-[Con titulo](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/ "Link a Data Dashboard")
+[Link a Data Dashboard](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
 
 <!-- ### Habilidades blandas
 
