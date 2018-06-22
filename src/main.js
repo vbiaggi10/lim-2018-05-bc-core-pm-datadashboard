@@ -16,65 +16,146 @@ var apiRequest3 = fetch('https://api.laboratoria.la/cohorts/lim-2018-03-pre-core
 
 var combinedData = { "apiRequest0": {}, "apiRequest1": {}, "apiRequest2": {}, "apiRequest3": {} };
 Promise.all([apiRequest0, apiRequest1, apiRequest2, apiRequest3]).then(function (values) {
-  combinedData["apiRequest0"] = values[0]
+
+  combinedData["apiRequest0"] = values[0];
   combinedData["apiRequest1"] = values[1];
   combinedData["apiRequest2"] = values[2];
   combinedData["apiRequest3"] = values[3];
+
   const listCampuses = document.querySelector('#listCampuses');
-  const listCohorts = document.querySelector('.venuesContainer');
+  const listCohorts = document.querySelector('#listCohorts');
   const listUsers = document.querySelector('#listUsers');
-  for (let i = 0; i < values[1].length; i++) {
+  const subtittle = document.querySelector('.subtittleContainer');
+
+  for (let i = 0; i < values[0].length; i++) {
     const optionElements = document.createElement('option');
-    const contenidoOption = document.createTextNode(values[1][i].id);
+    const contenidoOption = document.createTextNode(values[0][i].id);
     optionElements.appendChild(contenidoOption);
-    listCohorts.appendChild(optionElements);
+    listCampuses.appendChild(optionElements);
   }
+
+  listCampuses.addEventListener('change', () => {
+    if (listCampuses.value === 'lim') {
+      for (let i = 0; i < values[1].length; i++) {
+        if (values[1][i].id.substr(0, 3) === 'lim') {
+          const optionElements = document.createElement('option');
+          const contenidoOption = document.createTextNode(values[1][i].id);
+          optionElements.appendChild(contenidoOption);
+          listCohorts.appendChild(optionElements);
+        }
+      }
+    }
+  })
+
   listCohorts.addEventListener('change', () => {
     if (listCohorts.value === 'lim-2018-03-pre-core-pw') {
       const mysubtittle = document.createElement('h1');
       mysubtittle.textContent = "lim-2018-03-pre-core-pw";
       subtittle.appendChild(mysubtittle);
-      functionUser(values[2], values[3]);
-    }else{
-      alert("Aún no hay datos") ;
+      let courses = [];
+      if (values[2].id === 'lim-2018-03-pre-core-pw') {
+        for (key in values[2].coursesIndex) {
+          values[2].push(key);
+        }
+      }
+      functionUser(values[2], values[3], courses);
+    } else {
+      alert("Aún no hay datos");
     }
   })
-  //Listando a los usuarios
 
   return combinedData;
 });
 
-function functionUser(users, progress) {
+function functionUser(users, progress, courses) {
+  const userData = document.querySelector('.studentsContainer');
   let tamaño = users.length;
+  users = users.filter(
+    users => users.role == 'student'
+  );
   for (let i = 0; i < tamaño; i++) {
     let myName = document.createElement('h1');
     let myID = document.createElement('p');
     let myRole = document.createElement('p');
     let myProgress = document.createElement('p');
+    let myUnits = document.createElement('p');
     let container = document.createElement('div');
     let photo = document.createElement('img');
     let img = 'img/woman.png';
     photo.setAttribute('src', img);
     container.classList.add('container');
+    idUser = users[i].id;
     myName.textContent = users[i].name;
     myID.textContent = 'ID: ' + users[i].id;
     myRole.textContent = 'Role: ' + users[i].role;
-    myProgress.textContent = 'Progress: ' + progress[i].intro.percent;
+    myProgress.textContent = 'Intro progress: ' + progress[idUser].intro.percent;
+    let unidades = progress[idUser].intro.units;
+    myUnits.textContent = 'Unidades: ' + JSON.stringify(unidades);
+    console.log(unidades)
     container.appendChild(photo);
     container.appendChild(myName);
     container.appendChild(myID);
     container.appendChild(myRole);
     container.appendChild(myProgress);
+    container.appendChild(myUnits);
 
     userData.appendChild(container);
 
   }
+  /* let usersWithStats = computeUsersStats(users, progress, courses);
+  usersWithStats.map(
+    userWithStats => {
+      let myName = document.createElement('h1');
+      let myID = document.createElement('p');
+      let myRole = document.createElement('p');
+      let myProgress = document.createElement('p');
+      let myUnits = document.createElement('p');
+      let myTotal = document.createElement('p');
+      let myCompleted = document.createElement('p');
+      let myPercent = document.createElement('p');
+      let container = document.createElement('div');
+      let photo = document.createElement('img');
+      let img = 'img/woman.png';
+
+
+      const name = document.createTextNode(userWithStats.name);
+      const id = document.createTextNode(userWithStats.id);
+      const role = document.createTextNode(userWithStats.role);
+      let total;
+      let completed;
+      let percent;
+      if (userWithStats.hasOwnProperty('stats')) {
+        total = document.createTextNode(userWithStats.stats.exercises.total);
+        completed = document.createTextNode(userWithStats.stats.exercises.completed);
+        percent = document.createTextNode(userWithStats.stats.exercises.percent);
+      }
+      else {
+        total = document.createTextNode('---');
+        completed = document.createTextNode('---');
+        percent = document.createTextNode('---');
+      }
+
+      myName.appendChild(name);
+      myTotal.appendChild(total);
+      myCompleted.appendChild(completed);
+      myPercent.appendChild(percent);
+
+      container.appendChild(photo);
+      container.appendChild(myName);
+      container.appendChild(myID);
+      container.appendChild(myRole);
+      container.appendChild(myProgress);
+      container.appendChild(myTotal);
+      container.appendChild(myCompleted);
+      container.appendChild(myPercent);
+
+      userData.appendChild(container);
+
+    }
+  ); */
 }
 
-/* window.computeUsersStats = (users, progress, courses) => {
-    const listOfUser = users.map();
 
-} */
 
 
 
