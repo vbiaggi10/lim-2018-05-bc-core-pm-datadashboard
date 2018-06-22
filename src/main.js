@@ -97,7 +97,6 @@ function functionUser(users, progress, courses) {
     container.appendChild(myID);
     container.appendChild(myRole);
     container.appendChild(myProgress);
-    container.appendChild(myUnits);
 
     userData.appendChild(container);
 
@@ -161,7 +160,7 @@ function functionUser(users, progress, courses) {
 
 let aux1 = 1;
 let choiceClassVenue = document.querySelectorAll('.venuesContainer');
-let venuesContainer = document.querySelector('#venuesContainer');
+const venuesContainer = document.querySelector('#venuesContainer');
 venuesContainer.addEventListener('click', () => {
 
   if (aux1 === 1) {
@@ -176,5 +175,23 @@ venuesContainer.addEventListener('click', () => {
     }
     venuesContainer.style.background = '#ffffff';
     aux1 = 1;
+  }
+});
+
+const menuOnClick = document.querySelector('.menu')
+let openLeftNavBar = document.querySelector('.leftNavBar');
+let openColumn = document.querySelector('.column');
+menuOnClick.addEventListener('click', () => {
+
+  if (aux1 === 1) {
+    openLeftNavBar.style.display = 'block';
+    openColumn.style.height = '100vh';
+    aux1 = 0;
+    alert('abierto');
+  } else {
+    openLeftNavBar.style.display = 'none';
+    openColumn.style.height = '65px';
+    aux1 = 1;
+    alert('cerrado');
   }
 });
