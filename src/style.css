@@ -20,10 +20,10 @@
 ******************************/
 
 /* FONTS */
-@import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans:800');
 
+@import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans:800');
 @media only screen and (min-width: 320px) {
-    /* Body and some general stuff */
+    /* General stuff */
     body {
         color: #2b2b2b;
         font-family: 'Open Sans:400', sans-serif;
@@ -42,14 +42,14 @@
     h1 {
         margin: 16px 0 0 0;
         color: #999999;
-        font-size: 1.2rem;
+        font-size: 1.0rem;
         font-weight: 700;
         line-height: 1.35417em;
         text-transform: uppercase;
         display: block;
     }
     h2 {
-        font-size: 1.0rem;
+        font-size: 0.98rem;
     }
     h3,
     h4 {
@@ -80,22 +80,19 @@
     }
     select:focus {
         outline: none;
-	}
-	
-	/* Loading page */
+    }
+    /* Loading page */
     .logo-loading {
         width: 100%;
         background-color: #56f89a;
         text-align: center;
         vertical-align: middle;
     }
-    
     .logo-loading img {
         width: 320px;
         height: 80px;
         max-width: 500px;
     }
-    
     .loading {
         height: 50%;
         width: 50%;
@@ -110,13 +107,11 @@
     .loading img {
         width: 97%;
         height: 97%;
-	}
-	
-	/* Data dashboard container */
+    }
+    /* Data dashboard container */
     .root {
         display: none;
-	}
-	
+    }
     /* LEFT BAR */
     .column {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
@@ -162,8 +157,44 @@
     }
     .menu {
         cursor: pointer;
-	}
-	
+    }
+    /* User information */
+    .user-information {
+        padding: 24px 16px;
+        background-color: #fafafa;
+        width: 100%;
+        display: flex;
+        position: relative;
+        box-sizing: border-box;
+        text-align: left;
+        align-items: center;
+        justify-content: flex-start;
+        text-decoration: none;
+    }
+    .user-img {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        font-size: 1.25rem;
+        align-items: center;
+        flex-shrink: 0;
+        font-family: museo-sans, "Helvetica Neue", Arial, sans-serif;
+        border-radius: 50%;
+        justify-content: center;
+        -moz-user-select: none;
+        color: #fafafa;
+        background-color: #bdbdbd;
+    }
+    .user-data {
+        flex: 1 1 auto;
+        padding: 0 16px;
+        min-width: 0;
+    }
+    .user-data p {
+        color: rgba(0, 0, 0, 0.54);
+    }
     /* Information container */
     .information-container {
         margin-left: 0px;
@@ -198,11 +229,9 @@
         margin-top: 40px;
         align-items: center;
         justify-content: space-between;
-	}
-	
-	/* Campuses container */
-
-	.venues-container {
+    }
+    /* Campuses container */
+    .campuses-container {
         text-transform: uppercase;
         font-family: 'Bitter', serif;
         font-weight: 100;
@@ -277,10 +306,6 @@
     }
     .sign-off .item-container {
         background-color: #fafafa;
-	}
-	
-	/* Data container */
-    
-    
- 
+    }
+    /* Data container */
 }
