@@ -6,9 +6,25 @@
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+
+  <!-- Loading page -->
+  <div class="load-container">
+    <div class="header-loading">
+      <header class="logo-loading">
+        <img src="img/logo-negro.png">
+      </header>
+    </div>
+    <div class="loading" id="loading">
+      <img src="img/loader.gif" />
+      <b>Cargando...</b>
+    </div>
+  </div>
+
+  <!-- Access in DATA DASHBOARD -->
   <div class="root">
     <div class="column">
       <div class="leftBar">
@@ -183,13 +199,15 @@
           </div>
           <div class="dataContainer">
             <div class="studentsContainer">
-              
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- SCRIPTS -->
   <script src="main.js"></script>
   <script src="data.js"></script>
 </body>
