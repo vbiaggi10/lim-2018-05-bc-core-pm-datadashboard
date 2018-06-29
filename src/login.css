@@ -1,60 +1,73 @@
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-
-.logoContainer {
-  width: 100%;
-  background-color: #ffe521;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.logo {
-  width: 320px; 
-  height: 80px;
-  max-width: 500px;
-}
-
-.logInBar {
-  align-items: center;
-  justify-content: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 80%;
-  display: flex;
-}
-
-form {
-  margin: 50px;
-  width: 50%;
-  max-width: 500px;
-  padding: 60px;
-  border: 1px rgba(0, 0, 0, 0.5) outset;
-  box-shadow: 1px 1px 1px rgb(44, 44, 44);
-}
-
-input {
-  display: block;
-  padding: 5px;
-  margin: 5px 0;
-  width: 90%;
-  border: 0;
-  background-color: #EFEFEF;
-  box-shadow: 2px 2px 2px rgb(49, 49, 49);
-}
-
-input[type="submit"] {
-  background-color: #ffe521;
-  cursor: pointer;
-  opacity: 0.9;
-  margin-top: 15%;
-  width: 35%;
-  margin-bottom: 0;
-  vertical-align: middle;
-  box-shadow: 2px 2px 2px rgb(49, 49, 49);
-}
-
-input[type="submit"]:hover {
-  opacity: 1;
+@import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans:800');
+@media only screen and (min-width: 320px) {
+    body {
+        font-family: 'Open Sans:400', sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+    h3 {
+        text-transform: uppercase;
+        font-family: 'Bitter', serif;
+        color: #999999;
+        font-size: 1rem;
+        line-height: 1.8em;
+        display: block;
+    }
+    html,
+    body,
+    .log-in-site,
+    .log-in-bar {
+        height: 95%;
+        width: 100%;
+    }
+    .logo-container {
+        width: 100%;
+        background-color: #ffe521;
+        text-align: center;
+        vertical-align: middle;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .logo {
+        width: 320px;
+        height: 80px;
+        max-width: 500px;
+    }
+    .log-in-bar {
+        align-items: center;
+        justify-content: center;
+        font-size: 80%;
+        display: flex;
+    }
+    form {
+        margin-top: 9%;
+        margin-bottom: 9%;
+        padding: 50px;
+        border: 1px rgba(0, 0, 0, 0.5) outset;
+        box-shadow: 1px 1px 1px rgb(44, 44, 44);
+    }
+    input {
+        font-family: 'Open Sans:400', sans-serif;
+        display: block;
+        padding: 5px;
+        margin: 5px 0;
+        width: 90%;
+        border: 0;
+        background-color: #fafafa;
+        box-shadow: 2px 2px 2px rgb(49, 49, 49);
+    }
+    .button-submit{
+      text-align: center;
+    }
+    input[type="submit"] {
+        background-color: #ffe521;
+        cursor: pointer;
+        opacity: 0.9;
+        margin: 15% auto 0 auto;
+        width: auto;
+        vertical-align: middle;
+        box-shadow: 2px 2px 2px rgb(49, 49, 49);
+    }
+    input[type="submit"]:hover {
+        opacity: 1;
+    }
 }
