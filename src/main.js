@@ -1,3 +1,10 @@
+/* Loading page processing with window.onload */
+processing = () => {
+  document.querySelector('.load-container').style.display = 'none';
+  document.querySelector('.root').style.display = 'flex';
+}
+window.onload = () => { processing() }
+
 let aux1 = 1;
 let aux2 = 1;
 let choiceClassVenue = document.querySelectorAll('.venueContainer');
