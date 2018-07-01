@@ -3,21 +3,26 @@
 /******************************
 [Table of Contents]
 1. Fonts
-2. 320px
+2. 320 px
     2.1. General stuff
     2.2. Loading page
     2.3. Data Dashboard Container
         2.3.1. Left navigation bar
         2.3.2. Information container
-3. 756px
-4. 1200px
+3. 768 px
+    3.1. Data of students
+4. 1024 px
+    4.1. General stuff
+    4.2. Data dashboard container
+        4.2.1. Left navigation bar
+        4.2.2. Information container
 
 ******************************/
 
 /* 1. FONTS */
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans:800');
-/* 2. 320px */
+/* 2. 320 px */
 
 @media only screen and (min-width: 320px) {
     /* 2.1. General stuff */
@@ -114,29 +119,23 @@
         left: 0;
         right: auto;
         top: 0;
-        flex: 1 0 auto;
         height: 65px;
         display: flex;
-        z-index: 1200;
+        z-index: 1200; /* posicion del elemento */
         position: fixed;
-        overflow-y: auto;
-        flex-direction: column;
         box-shadow: none;
         background-color: #fff;
         width: 100%;
     }
     /* 2.3.1. Left navigation bar */
     .left-bar {
-        flex: 1 1 auto;
         margin: 0;
         padding: 0;
-        position: relative;
-        list-style: none;
         width: 100%;
     }
     .logo-container {
         width: 100%;
-        display: flex;
+        display: flex; /* elemento flexible */
         position: relative;
         box-sizing: border-box;
         text-align: left;
@@ -165,27 +164,15 @@
         box-sizing: border-box;
         text-align: left;
         align-items: center;
-        justify-content: flex-start;
-        text-decoration: none;
     }
     .user-img {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
         display: flex;
         position: relative;
-        overflow: hidden;
-        font-size: 1.25rem;
-        align-items: center;
-        flex-shrink: 0;
-        font-family: museo-sans, "Helvetica Neue", Arial, sans-serif;
         border-radius: 50%;
-        justify-content: center;
-        -moz-user-select: none;
-        color: #fafafa;
-        background-color: #bdbdbd;
     }
     .user-data {
-        flex: 1 1 auto;
         padding: 0 16px;
         min-width: 0;
     }
@@ -197,51 +184,30 @@
         text-transform: uppercase;
         font-family: 'Bitter', serif;
         font-weight: 100;
-        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         font-size: 1rem;
-        line-height: 1.5em;
         padding: 12px 16px 12px 16px;
         width: 100%;
         display: none;
         position: relative;
-        box-sizing: border-box;
         text-align: left;
-        align-items: center;
-        justify-content: flex-start;
-        text-decoration: none;
         color: inherit;
         border: 0;
         margin: 0;
         cursor: pointer;
         outline: none;
-        border-radius: 0;
-        vertical-align: middle;
-        -moz-appearance: none;
-        -moz-user-select: none;
     }
     .item-container {
-        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         padding: 12px 16px 12px 16px;
         width: 100% !important;
         display: flex;
         position: relative;
-        box-sizing: border-box;
         text-align: left;
-        align-items: center;
-        justify-content: flex-start;
-        text-decoration: none;
         color: inherit;
         border: 0;
         margin: 0;
         cursor: pointer;
-        outline: none;
-        border-radius: 0;
-        vertical-align: middle;
-        -moz-appearance: none;
-        -moz-user-select: none;
     }
     .item-container:hover {
-        text-decoration: none;
         width: 320px;
         background-color: rgba(0, 0, 0, 0.08);
     }
@@ -269,7 +235,7 @@
     .sign-off .item-container {
         background-color: #fafafa;
     }
-    /* 2.3.2. Information container */
+    /* 2.3.2. Information of DATA DASHBOARD */
     .information-container {
         margin-left: 0px;
         margin-top: 100px;
@@ -279,7 +245,6 @@
     }
     .tittle-container {
         width: 100%;
-        box-shadow: none;
         color: rgba(0, 0, 0, 0.87);
         background-color: #ffe521;
         top: 65px;
@@ -288,9 +253,6 @@
         position: fixed;
         display: flex;
         z-index: 1100;
-        box-sizing: border-box;
-        flex-shrink: 0;
-        flex-direction: column;
     }
     .tittle {
         padding-left: 24px;
@@ -400,7 +362,7 @@
         width: 90%;
         height: 90%;
     }
-    /* Data container */
+    /* Data of students */
     .data-container {
         display: flex;
         flex-wrap: wrap;
@@ -417,8 +379,9 @@
         border: 0.5px solid #666666;
     }
 }
-
+/* 4. 768 px */
 @media only screen and (min-width: 768px) {
+    /* 3.1. Data of students */
     .container {
         width: 100%;
     }
@@ -504,8 +467,9 @@
         width: 33%;
     } */
 }
-
+/* 4. 1024 px */
 @media only screen and (min-width: 1024px) {
+    /* 4.1. General stuff */
     h1 {
         font-size: 1.5rem;
     }
@@ -519,10 +483,12 @@
     h4 {
         font-size: 1.0rem;
     }
+    /* 4.2. Data dashboard container */
     .column {
         height: 100vh !important;
         width: 320px;
     }
+    /* 4.2.1. Left navigation bar */
     .left-bar {
         width: 320px;
     }
@@ -532,6 +498,7 @@
     .menu {
         display: none;
     }
+    /* 4.2.2. Information of DATA DASHBOARD */
     .information-container {
         margin-left: 320px;
         margin-top: 53px;
@@ -543,6 +510,7 @@
     .tittle {
         min-height: 64px;
     }
+    /* Search and sort container */
     .search-sort {
         width: calc(100% - 320px);
         top: 63.5px;
@@ -557,6 +525,7 @@
         left: 320px;
         width: calc(100% - 320px);
     }
+    /* Video */
     .video {
         left: 320px;
         width: calc(100% - 320px);
