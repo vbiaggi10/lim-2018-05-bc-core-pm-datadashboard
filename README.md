@@ -118,6 +118,8 @@ El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que
 
 Usamos Figma para realizar el diseño de la idea que teníamos para la interfaz.
 
+[Link del Prototipo](https://www.figma.com/proto/TWmFB9HQZFqTk4C1ZsAQqcC5/Prototipo-Data-Dashboard?scaling=min-zoom&node-id=7%3A89)
+
 El prototipo funciona de la siguiente manera:
 
 ![Sin titulo](/img/Prototipo-Dashboard.gif)
