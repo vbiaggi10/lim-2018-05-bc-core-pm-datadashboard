@@ -54,7 +54,7 @@ window.computeUsersStats = (users, progress, courses) => {
             completed: quizzesCompleted,
             percent: Math.round((quizzesCompleted / quizzesTotal) * 100),
             scoreSum: quizzesScoreSum,
-            scoreAvg: Math.round(quizzesScoreSum / quizzesCompleted)
+            scoreAvg: Math.round(quizzesScoreSum / quizzesTotal)
           }
         };
         user.stats = stats;

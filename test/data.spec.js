@@ -108,7 +108,7 @@ describe('data', () => {
       assert.equal(sortUsers(users, 'quizzes-average', 'ASC')[0].stats.quizzes.scoreAvg, 0);
     });
     it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC', () => {
-      assert.equal(sortUsers(users, 'quizzes-average', 'DESC')[0].stats.quizzes.scoreAvg, 100);
+      assert.equal(sortUsers(users, 'quizzes-average', 'DESC')[0].stats.quizzes.scoreAvg, 99);
     });
     it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC', () => {
       assert.equal(sortUsers(users, 'reads-percent', 'ASC')[0].stats.reads.percent, 0);
