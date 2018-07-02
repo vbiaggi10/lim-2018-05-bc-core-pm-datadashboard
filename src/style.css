@@ -385,6 +385,7 @@
         background-color: #fafafa;
         width: auto;
         border: 0.5px solid #666666;
+        word-wrap: break-word;
     }
     .container h1 {
         margin: 16px 0;

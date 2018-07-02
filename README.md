@@ -2,7 +2,7 @@
 
 ## Enlace a la interfaz
 
-[Link a Data Dashboard](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
+[Link a Data Dashboard](https://vbiaggi10.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
 
 ## Gif del Demo en móvil
 

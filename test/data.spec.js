@@ -108,7 +108,7 @@ describe('data', () => {
       assert.equal(sortUsers(users, 'quizzes-average', 'ASC')[0].stats.quizzes.scoreAvg, 0);
     });
     it('debería retornar arreglo de usuarios ordenado por score promedio en quizzes completados DESC', () => {
-      assert.equal(sortUsers(users, 'quizzes-average', 'DESC')[0].stats.quizzes.scoreAvg, 99);
+      assert.equal(sortUsers(users, 'quizzes-average', 'DESC')[0].stats.quizzes.scoreAvg, 100);
     });
     it('debería retornar arreglo de usuarios ordenado por lecturas (reads) completadas ASC', () => {
       assert.equal(sortUsers(users, 'reads-percent', 'ASC')[0].stats.reads.percent, 0);
@@ -117,43 +117,19 @@ describe('data', () => {
       assert.equal(sortUsers(users, 'reads-percent', 'DESC')[0].stats.reads.percent, 100);
     });
     
-    let user = [
-      {
-        name: "Valeria",
-        stats: {
-          exercises: { total: 2, completed: 2, percent: 100 },
-          percent: 100,
-          quizzes: {
-            total: 3, completed: 3, percent: 100, scoreAvg: 97, scoreSum: 292
-          },
-          reads: { total: 11, completed: 11, percent: 100 }
-        }
-      },
-      {
-        name: "Anthony",
-        stats: {
-          exercises: { total: 2, completed: 0, percent: 0 },
-          percent: 58,
-          quizzes: {
-            total: 3, completed: 1, percent: 33, scoreAvg: 90, scoreSum: 90
-          },
-          reads: { total: 11, completed: 8, percent: 73 }
-        }
-      }]
-
     it('118, 121', () => { 
-      assert.equal(users.map(
-        (userss) =>{
-          sortUsers(userss, 'total-percent', 'ASC').length
-        }
-        , users.length ));
+      let totalPercent = users.map(
+        (user) =>{
+          sortUsers(user, 'total-percent', 'ASC').length
+        })
+      assert.equal( totalPercent.length, users.length );
     });
     it('100, 103', () => { 
-      assert.equal(users.map(
-        (userss) =>{
-          sortUsers(userss, 'exercise-percent', 'ASC').length
-        }
-        , users.length ));
+      let exercisePercent = users.map(
+        (user) =>{
+          sortUsers(user, 'exercise-percent', 'ASC').length
+        })
+      assert.equal( exercisePercent.length, users.length );
     });
   });
 
