@@ -10,45 +10,62 @@
 </head>
 
 <body>
+
+  <!-- Loading page -->
+  <div class="load-container">
+    <div class="header-loading">
+      <header class="logo-loading">
+        <img src="img/logo-negro.png">
+      </header>
+    </div>
+    <div class="loading" id="loading">
+      <img src="img/loader.gif" />
+    </div>
+  </div>
+
+  <!-- Access in DATA DASHBOARD -->
   <div class="root">
+
     <div class="column">
-      <div class="leftBar">
-        <div class="logoContainer">
+
+      <!-- Navigation bar left -->
+      <div class="left-bar">
+        <div class="logo-container">
           <img src="img/menu.png" alt="" class="menu">
           <img class="logo" src="img/logo.png">
         </div>
         <hr class="line">
-        <div class="leftNavBar">
-          <div class="userInformation">
-            <div class="userImg">
-              img
-            </div>
-            <div class="userData">
-              <h3>Nombre Apellido Apellido</h3>
+        <div class="left-nav-bar">
+
+          <div class="user-information">
+            <img src="img/0.jpg" alt="" class="user-img">
+            <div class="user-data">
+              <h3>Alejandra Ramirez Apellido</h3>
               <p>email@email.com</p>
             </div>
           </div>
 
-          <div class="itemContainer" id="venuesContainer">
-            <div class="itemImg">
+          <div class="item-container" id="campuses-container">
+            <div class="item-img">
               <img src="img/sede.png" alt="">
             </div>
             <div class="item">
               <h3>
-                <span>SEDES</span>
+                <span>CAMPUS</span>
               </h3>
             </div>
           </div>
-          <div class="selectContainer">
-            <select class="venuesContainer" id="listCampuses">
+
+          <div class="select-container">
+            <select class="campuses-container" id="list-campuses">
             </select>
-            <select class="venuesContainer" id="listCohorts">
+            <select class="campuses-container" id="list-cohorts">
             </select>
           </div>
 
 
-          <div class="itemContainer">
-            <div class="itemImg">
+          <div class="item-container">
+            <div class="item-img">
               <img src="img/settings.png" alt="">
             </div>
             <div class="item">
@@ -58,10 +75,10 @@
             </div>
           </div>
 
-          <div class="signOff">
+          <div class="sign-off" id="sign-off">
             <hr class="line">
-            <div class="itemContainer">
-              <div class="itemImg">
+            <div class="item-container">
+              <div class="item-img">
                 <img src="img/exit.png" alt="">
               </div>
               <div class="item">
@@ -73,47 +90,82 @@
           </div>
         </div>
       </div>
+
     </div>
-    <div class="informationContainer">
-      <div class="dataDashboardGeneral">
-        <header class="tittleContainer">
+
+    <!-- Information of DATA DASHBOARD -->
+    <div class="information-container">
+      <div class="data-dashboard-general">
+        <header class="tittle-container">
           <div class="tittle">
             <h2>
               <span>Data Dashboard</span>
             </h2>
           </div>
         </header>
-        <div class="searchsort">
-          <div class="searchContainer">
-            <form action="/action_page.php">
+
+        <div class="search-sort">
+          <div class="search-container">
+            <form>
               <a type="submit">
                 <i class="fa fa-search"></i>
               </a>
-              <input type="text" placeholder="Search.." name="search">
+              <input id="searching" type="text" placeholder="Buscar.." name="search">
             </form>
           </div>
-          <div class="sortContainer">
-            <select>
-              <option value="sort-by">Filtrar</option>
-              <option value="course">Cursos</option>
-              <option value="read">Lecturas</option>
-              <option value="exercise">Ejercicios</option>
-              <option value="quiz">Quizzes</option>
-            </select>
-          </div>
-        </div>
-        <hr class="line">
-        <div>
-          <div class="subtittleContainer" id="subtittleContainer">
-          </div>
-          <div class="dataContainer">
-            <div class="studentsContainer">
+          <div class="sort-container">
+            <div id="sort-img">
+              <img src="img/sort.png" alt="" class="sort-img">
             </div>
           </div>
         </div>
+        <div id="open-sort-container">
+          <select id="sort-by-container">
+            <option value="sort-by">Ordenar por ...</option>
+            <option value="name">Nombre</option>
+            <option value="total-percent">Porcentaje total</option>
+            <option value="exercise-percent">Porcentaje de ejercicios</option>
+            <option value="quizzes-percent">Porcentaje de quizzes</option>
+            <option value="quizzes-average">Promedio de quizzes</option>
+            <option value="reads-percent">Porcentaje de lecturas</option>
+          </select>
+          <div class="sort-direction-container">
+            <div class="order-direction" id="direction-ASC">
+              <input type="radio" id="direction-asc" name="direction" checked />
+              <label for="asc">Ascendente</label>
+            </div>
+            <div class="order-direction" id="direction-DESC">
+              <input type="radio" id="direction-desc" name="direction" />
+              <label for="desc">Descendente</label>
+            </div>
+          </div>
+        </div>
+
+        <hr class="line">
+        <div>
+
+          <div class="subtittle-container" id="subtittle-container">
+          </div>
+
+          <div class="video">
+            <video autoplay loop playsinline muted >
+              <source src="img/Mapa_con_Logo.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Data of students -->
+          <div class="data-container">
+            <div class="students-container">
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
+
   </div>
+
+  <!-- SCRIPTS -->
   <script src="main.js"></script>
   <script src="data.js"></script>
 </body>

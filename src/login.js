@@ -1,8 +1,7 @@
-const userEmail = document.querySelector('#email');
-const userPassword = document.querySelector('#password');
-
-document.querySelector('#submit').addEventListener("click", () => {
-
+document.querySelector('#submit').addEventListener('click', (e) => {
+  e.preventDefault();
+  let userEmail = document.querySelector('#email').value;
+  let userPassword = document.querySelector('#password').value;
   if (userEmail === 'admin' && userPassword === 'admin') {
 
     window.location.href = 'index.html';

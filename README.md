@@ -1,5 +1,14 @@
 # Data Dashboard
 
+## Enlace a la interfaz
+
+[Link a Data Dashboard](https://vbiaggi10.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
+
+## Gif del Demo en móvil
+
+![Sin titulo](/img/dashboard2.gif)
+
+
 ## Preámbulo
 
 En Laboratoria, las Training Managers (TMs) hacen un gran trabajo al analizar la
@@ -99,19 +108,39 @@ Al principio usamos los mismos colores predominantes: amarillo y blanco. Pero lu
 
 ## Sketch (prototipo de baja fidelidad)
 
-El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que, al entrevistar a Alejandra también le mostramos un avance de la idea que teníamos para la interfaz. Luego se fue adaptando de acuerdo a las respuestas dadas.
+El sketch fue ideado en conjunto con las preguntas de la entrevista. Es así que, al entrevistar a Alejandra también le mostramos un avance de la idea que teníamos para la interfaz. Luego se adaptó de acuerdo a las respuestas obtenidas.
 
-![Sin titulo](/img/IMG_8201.jpg)
-![Sin titulo](/img/IMG_8203.jpg)
+![Sin titulo](/img/sketch-1.jpg)
+![Sin titulo](/img/sketch-2.jpg)
 
 
 ## Diseño de la Interfaz de Usuario
 
-Usamos Figma para realizar el diseño.
+Usamos Figma para realizar el diseño de la idea que teníamos para la interfaz.
 
-![Sin titulo](/img/log_in.jpg)
-![Sin titulo](/img/mockup_dashboard.jpg)
-![Sin titulo](/img/data_dashboard.jpg)
+El prototipo funciona de la siguiente manera:
+
+![Sin titulo](/img/Prototipo-Dashboard.gif)
+
+Esta es la página de Log in:
+
+![Sin titulo](/img/log-in.jpg)
+
+
+Al entrar a un cohort en particular el data dashboard muestra la información general:
+
+![Sin titulo](/img/data-dashboard-inicial.jpg)
+
+
+Cuando se selecciona 'alumnas' se obtiene una lista de las alumnas con sus datos y estadísticas:
+
+![Sin titulo](/img/data-dashboard-alumnas.jpg)
+
+
+Para ordenar la información como quiera el usuario, se puede seleccionar una de las opciones que se presentar al hacer click en las flechas que se encuentran al lado derecho de la interfaz:
+
+![Sin titulo](/img/order-by-1.jpg)
+![Sin titulo](/img/order-by-2.jpg)
 
 ## Maquetación 
 
@@ -121,33 +150,63 @@ Podemos ver una columna izquierda donde aparece la información de la TM que se 
 
 Se ha usado el color amarillo de Laboratoria como color principal y el blanco y menta como colores secundarios.
 
-## Enlace a la interfaz
+## Proceso de elaboración de funciones
 
+Hemos usado dos archivos de JavaScript en este proyecto: _main.js_ y _data.js_.
+
+En **main.js** va todo lo relacionado al DOM. Creamos las variables necesarias para llamar a las funciones y utilizamos el método fetch para hacer una petición de forma asíncrona. Asimismo, combinamos la data con la API de Laboratoria, donde se encuentra toda la información requerida. Aquí también añadimos los eventos del DOM (addEventListener), tales como: change, click y keyup.
+
+En **data.js** manipulamos los datos implementando las funciones que se requieren en el proyecto. 
+
+Para implementar las funciones elaboramos una serie de pasos para entender cómo sería cada función.
+
+Primero implementamos la cuarta función: processCohortData(options), que es la que invoca a todas las demás. Luego, seguimos con el siguiente orden de implementación: computeUsersStats(users, progress, courses), sortUsers(users, orderBy, orderDirection) y filterUsers(users, search).
+
+1. _computeUsersStats()_ es la función más grande y es en la que recorremos el array de objetos de usuarios, el progreso y los cursos. 
+
+Cuando pensamos en los pasos a seguir, primero queríamos recorrer usuarios y guardar ese recorrido en una variable _userWithStats()_. Si esta tiene la propiedad _intro_, se declaran las variables que serán propiedades del objeto _stats_. Luego, entramos a las unidades del curso y después a las partes de las unidades para poder calcular lo que se requiere. Creamos el objeto _stats_ y completamos la información en cada propiedad. Después agregamos la propiedad _stats_ a _user_ y retornamos _user_.
+
+En el caso de que no tenga la propiedad _intro_ rellenar con ‘0’ el objeto _stats_.
+
+Por último, retornar _userWithStats()_.
+
+Aquí decidimos usar el método _map_ para crear un nuevo array con los resultados. También usamos el método _hasOwnProperty()_ para asegurarnos de que el objeto tenga la propiedad que necesitamos en ese momento. Utilizamos el _forEach()_ para ejecutar la función una vez para cada usuario y obtener la información y las estadísticas.
+
+2. _sortUsers()_ es la segunda función. Con esta podemos ordenar la información de acuerdo a los campos que el usuario escoja y si quiere que sea ascendente o descendente. 
+
+El primer paso es recorrer users para ordenarlos. Luego, establecer como parámetros _x_, _y_ y declaramos variables auxiliares. Después creamos una función para cada caso de ordenamiento y añadimos la dirección ya sea ascendente o descendente. Finalmente, retornamos el recorrido ordenado.
+
+Usamos el método _sort_ para ordenar los elementos alfabéticamente. Aquí declaramos una variable que nos ayuda a simplificar el código con los argumentos que usamos. 
+
+3. _filterUsers()_ es una función que utilizamos para buscar a los usuarios por sus nombres. 
+
+Primero recorremos los _user_ para filtrarlos según la búsqueda, con el método _filter()_. Tomamos los nombres y los convertimos en minúsculas con _toLowerCase()_. Luego, tomamos el _indexOf()_ de la búsqueda convertida en minúsculas. Y se retorna el recorrido filtrado.
+
+En este caso cuando el usuario esté escribiendo el nombre, ya vayan apareciendo resultados de lo que está buscando.
+
+4. _processCohortData()_ es la función que implementamos primero. Aquí creamos variables para invocar las tres funciones antes mencionadas.
+
+Al pensar cómo hacer esta función, el primer paso fue llamar a la función _computeUsersStats()_ y le damos como argumentos las opciones que tenemos ahí. Luego, hacemos lo mismo con la segunda y tercera función. Al final, retornamos la tercera función _filterUsers()_ con los nuevos argumentos.
+
+## Test
+
+Para realizar los test, ingresamos valores específicos y reales de acuerdo a la data para asignarlos a las funciones y así obtengamos una respuesta que nos ayude a saber si las funcionalidad está correcta. 
+
+<<<<<<< HEAD
 [Link a Data Dashboard](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
+=======
+## Trabajo del proyecto
+>>>>>>> 11ca775313e870962f7873f3d1508f01c968d1e0
 
-<!-- ### Habilidades blandas
+#### Comunicación
 
-Para completar este proyecto deberás realizar una planificación general del
-proyecto, donde esperamos que generes un plan paso a paso de cómo resolverás
-el proyecto. Deberás considerar las distintas secciones del data dashboard, los
-recursos y el tiempo que dispones.
+En nuestro proceso de trabajo usamos varias herramientas de comunicación como por ejemplo: Slack, WhatsApp y Docs de Google Drive. Con estas aplicaciones podíamos pasar información de todo tipo para revisar e investigar, coordinar distintos temas, también las usábamos para comunicar nuestro avance mediante fotos y videos.
 
-Para lograrlo, deberás trabajar de manera colaborativa con tu compañera, para
-esto tienen que coordinarse en la construcción del producto, viendo de qué
-manera quieren trabajar y qué responsabilidades tendrá cada una para que así
-cumplan con los tiempos de entrega y ejecución.
+#### Sprints
 
-Para este proyecto busca instancias de code review, donde deberás buscar
-feedback de tu código con otro dupla, para que puedas mejorar el producto.
-Mientras más feedback recibas, mejor será su producto.
+Utilizamos Trello como _Kanban digital_ para poder llevar a cabo los sprints y avanzar como lo habíamos planeado.
 
-Nos interesa ver tu capacidad de autoaprendizaje, por lo que esperamos que
-logren realizar el hacker edition, de esta manera podrás llevar tu producto al
-siguiente nivel.
+![Sin titulo](/img/trello-sprint1.jpg)
+![Sin titulo](/img/trello-sprint2.jpg)
 
-Para finalizar, deberás presentar su data dashboard al resto del curso, para
-esto necesitarás que tu demo tenga acceso desde cualquier computador y que
-puedas realizar una presentación que permita a todos comprender lo realizado.
-Sabemos que puede ser una instancia difícil, esperamos que logres mostrar su
-trabajo y los demás lo comprendan. -->
 

@@ -2,59 +2,76 @@
 
 /******************************
 [Table of Contents]
-1. 320px
-  1.1. Body and some general stuff
 1. Fonts
-2. Body and some general stuff
-3. Header
-	3.1 Top bar
-4. CIPHER INFORMATION
-5. CIPHER AREA
-6. CIPHER STEPS
-7. Responsive
-	7.1. 768px
-	7.2. 576px
-	7.3. 480px
-	7.4. 320px
+2. 320 px
+    2.1. General stuff
+    2.2. Loading page
+    2.3. Data Dashboard Container
+        2.3.1. Left navigation bar
+        2.3.2. Information container
+3. 352 px
+4. 464 px
+5. 768 px
+    5.1. General stuff
+    5.2. Data of students
+6. 1024 px
+    6.1. General stuff
+    6.2. Data dashboard container
+        6.2.1. Left navigation bar
+        6.2.2. Information container
+
 ******************************/
 
+/* 1. FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans:800');
+/* 2. 320 px */
+
 @media only screen and (min-width: 320px) {
-    /* Body and some general stuff */
+    /* 2.1. General stuff */
     body {
         color: #2b2b2b;
         font-family: 'Open Sans:400', sans-serif;
         font-weight: 100;
         font-size: 16px;
         line-height: 145%;
+        margin: 0;
     }
     h1,
     h2,
-    h3 {
+    h3,
+    h4 {
         text-transform: uppercase;
         font-family: 'Bitter', serif;
     }
     h1 {
         margin: 16px 0 0 0;
-        color: #999;
-        font-size: 1.5rem;
+        color: #999999;
+        font-size: 1.3rem;
         font-weight: 700;
         line-height: 1.35417em;
         text-transform: uppercase;
         display: block;
     }
-    h3 {
+    h2 {
+        font-size: 1.1rem;
+    }
+    h3,
+    h4 {
         color: rgba(0, 0, 0, 0.87);
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 300;
-        line-height: 1.5em;
+        line-height: 1.8em;
         margin: 0;
         display: block;
+    }
+    h4 {
+        font-size: 0.86rem;
     }
     p {
         color: rgba(0, 0, 0, 0.87);
         font-size: 0.875rem;
         font-weight: 100;
-        font-family: museo-sans, "Helvetica Neue", Arial, sans-serif;
         line-height: 1.46429em;
         margin: 0;
         display: block;
@@ -66,34 +83,65 @@
         border: none;
         flex-shrink: 0;
     }
-    /* LEFT BAR */
+    select:focus {
+        outline: none;
+    }
+    /* 2.2. Loading page */
+    .logo-loading {
+        width: 100%;
+        background-color: #56f89a;
+        text-align: center;
+        vertical-align: middle;
+    }
+    .logo-loading img {
+        width: 320px;
+        height: 80px;
+        max-width: 500px;
+    }
+    .loading {
+        height: 50%;
+        width: 50%;
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+    .loading img {
+        width: 97%;
+        height: 97%;
+    }
+    /* 2.3. Data dashboard container */
+    .root {
+        display: none;
+        height: 100vh;
+    }
     .column {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
         left: 0;
         right: auto;
         top: 0;
-        flex: 1 0 auto;
         height: 65px;
         display: flex;
         z-index: 1200;
+        /* posicion del elemento */
         position: fixed;
-        overflow-y: auto;
-        flex-direction: column;
         box-shadow: none;
         background-color: #fff;
         width: 100%;
     }
-    .leftBar {
-        flex: 1 1 auto;
+    /* 2.3.1. Left navigation bar */
+    .left-bar {
         margin: 0;
         padding: 0;
-        position: relative;
-        list-style: none;
         width: 100%;
     }
-    .logoContainer {
+    .logo-container {
         width: 100%;
         display: flex;
+        /* elemento flexible */
         position: relative;
         box-sizing: border-box;
         text-align: left;
@@ -106,24 +154,105 @@
         margin: auto;
         display: block;
     }
-    .leftNavBar {
+    .left-nav-bar {
         display: none;
     }
-    .menu{
-      cursor: pointer;
+    .menu {
+        cursor: pointer;
     }
-
-    /* INFORMATION */
-    .informationContainer {
+    /* User information */
+    .user-information {
+        padding: 24px 16px;
+        background-color: #fafafa;
+        width: 100%;
+        display: flex;
+        position: relative;
+        box-sizing: border-box;
+        text-align: left;
+        align-items: center;
+    }
+    .user-img {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        position: relative;
+        border-radius: 50%;
+    }
+    .user-data {
+        padding: 0 16px;
+        min-width: 0;
+    }
+    .user-data p {
+        color: rgba(0, 0, 0, 0.54);
+    }
+    /* Campuses container */
+    .campuses-container {
+        text-transform: uppercase;
+        font-family: 'Bitter', serif;
+        font-weight: 100;
+        font-size: 0.95rem;
+        padding: 12px 16px 12px 16px;
+        width: 100%;
+        display: none;
+        position: relative;
+        text-align: left;
+        color: inherit;
+        border: 0;
+        margin: 0;
+        cursor: pointer;
+        outline: none;
+    }
+    .item-container {
+        padding: 12px 16px 12px 16px;
+        width: 100% !important;
+        display: flex;
+        position: relative;
+        text-align: left;
+        color: inherit;
+        border: 0;
+        margin: 0;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+    .item-container:hover {
+        width: 320px;
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+    .item-img {
+        fill: currentColor;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        flex-shrink: 0;
+        -moz-user-select: none;
+        color: rgba(0, 0, 0, 0.54);
+        margin-right: 16px;
+    }
+    .item {
+        flex: 1 1 auto;
+        padding: 0 16px;
+        min-width: 0;
+    }
+    .sign-off {
+        width: 100%;
+        bottom: 0;
+        position: absolute;
+    }
+    .sign-off .item-container {
+        background-color: #fafafa;
+    }
+    /* 2.3.2. Information of DATA DASHBOARD */
+    .information-container {
         margin-left: 0px;
         margin-top: 100px;
         padding: 36px;
-        width: 75%;
-        min-height: 100vh;
+        width: auto;
+        overflow-x: hidden;
+        /* min-height: 100vh; */
     }
-    .tittleContainer {
+    .tittle-container {
         width: 100%;
-        box-shadow: none;
         color: rgba(0, 0, 0, 0.87);
         background-color: #ffe521;
         top: 65px;
@@ -132,241 +261,332 @@
         position: fixed;
         display: flex;
         z-index: 1100;
-        box-sizing: border-box;
-        flex-shrink: 0;
-        flex-direction: column;
     }
     .tittle {
         padding-left: 24px;
         padding-right: 24px;
-        min-height: 64px;
+        /* min-height: 64px; */
+        min-height: 30px;
     }
-    .subtittleContainer {
-        display: flex;
-        margin-top: 40px;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .dataContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    .searchsort {
+    /* Search and sort container */
+    .search-sort {
         width: 100%;
         box-shadow: none;
         color: rgba(0, 0, 0, 0.87);
-        top: 128px;
+        top: 114px;
         left: auto;
         right: 0;
         position: fixed;
         display: flex;
         z-index: 1100;
         box-sizing: border-box;
-		flex-shrink: 0;
-		height: 30px;
-		background: #fff;
-    }
-    .searchContainer {
-        width: 70%;
-        margin: 0.5% 0.3% 0.5% 0.3%;
+        flex-shrink: 0;
+        height: 48px;
         background-color: #fafafa;
+        padding: 5px 3%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
     }
-    .searchContainer form input {
+    .search-container {
         width: 90%;
-        border: none;
-        background-color: #fafafa;
+        margin: 0.5% 0.3% 0.5% 0.3%;
+        height: 30px;
     }
-    .searchContainer form a {
+    .search-container form a {
         width: 6%;
         cursor: pointer;
     }
-    .sortContainer {
-        width: 30%;
-        margin: 0.5% 0.3% 0.5% 0.3%;
-        background-color: #56f89a;
+    .search-container form input {
+        width: 90%;
+        border: none;
+        background-color: #fafafa;
+        height: 30px;
     }
-    .sortContainer select {
+    .sort-container {
+        width: 10%;
+        margin: 0.5% 0.3% 0.5% 0.3%;
+        height: 30px;
+        text-align: right;
+        display: inline-block;
+    }
+    .sort-img {
+        width: 30px;
+        cursor: pointer;
+    }
+    /* Open sort container */
+    #open-sort-container {
+        text-align: center;
+        padding: 11px;
+        display: none;
+        height: auto;
         width: 100%;
+        box-shadow: none;
+        top: 162px;
+        left: 0;
+        right: 0;
+        position: fixed;
+        z-index: 1100;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        flex-direction: column;
+        background-color: #fafafa;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    .sort-container select {
+        width: 45%;
         border: none;
         background-color: #56f89a;
+        height: 30px;
     }
-    .studentsContainer {
-        width: 85%;
+    .sort-direction-container {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .order-direction {
+        text-align: center;
+    }
+    .order-direction input {
+        margin: .4rem;
+    }
+    /* Subtittle */
+    .subtittle-container {
+        display: flex;
+        margin-top: 40px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Video */
+    .video {
+        width: 90%;
+        margin: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 162px;
+        text-align: center;
+    }
+    .video video {
+        width: 100%;
+        height: 100%;
+    }
+    /* Data of students */
+    .data-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .students-container {
+        width: 100%;
     }
     .container {
         margin: 5%;
-        padding: 3%;
+        padding: 5%;
         background-color: #fafafa;
-        width: 100%;
+        width: auto;
         border: 0.5px solid #666666;
+        word-wrap: break-word;
     }
-
-
-
-
-    .userInformation {
-      padding: 24px 16px;
-      background-color: #fafafa;
-      width: 100%;
-      display: flex;
-      position: relative;
-      box-sizing: border-box;
-      text-align: left;
-      align-items: center;
-      justify-content: flex-start;
-      text-decoration: none;
-  }
-  .userImg {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      position: relative;
-      overflow: hidden;
-      font-size: 1.25rem;
-      align-items: center;
-      flex-shrink: 0;
-      font-family: museo-sans, "Helvetica Neue", Arial, sans-serif;
-      border-radius: 50%;
-      justify-content: center;
-      -moz-user-select: none;
-      color: #fafafa;
-      background-color: #bdbdbd;
-  }
-  .userData {
-      flex: 1 1 auto;
-      padding: 0 16px;
-      min-width: 0;
-  }
-  .userData p {
-      color: rgba(0, 0, 0, 0.54);
-  }
-  .venuesContainer {
-      text-transform: uppercase;
-      font-family: 'Bitter', serif;
-      font-weight: 100;
-      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-      font-size: 1rem;
-      line-height: 1.5em;
-      padding: 12px 16px 12px 16px;
-      width: 100%;
-      display: none;
-      position: relative;
-      box-sizing: border-box;
-      text-align: left;
-      align-items: center;
-      justify-content: flex-start;
-      text-decoration: none;
-      color: inherit;
-      border: 0;
-      margin: 0;
-      cursor: pointer;
-      outline: none;
-      border-radius: 0;
-      vertical-align: middle;
-      -moz-appearance: none;
-      -moz-user-select: none;
-  }
-  .itemContainer,
-  .venueContainer,
-  .yearContainer {
-      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-      padding: 12px 16px 12px 16px;
-      width: 100% !important;
-      display: flex;
-      position: relative;
-      box-sizing: border-box;
-      text-align: left;
-      align-items: center;
-      justify-content: flex-start;
-      text-decoration: none;
-      color: inherit;
-      border: 0;
-      margin: 0;
-      cursor: pointer;
-      outline: none;
-      border-radius: 0;
-      vertical-align: middle;
-      -moz-appearance: none;
-      -moz-user-select: none;
-  }
-  .itemContainer:hover,
-  .venueContainer:hover,
-  .yearContainer:hover {
-      text-decoration: none;
-      width: 320px;
-      background-color: rgba(0, 0, 0, 0.08);
-  }
-  .venueContainer {
-      display: none;
-  }
-  .yearContainer {
-      display: none;
-  }
-  .itemImg {
-      fill: currentColor;
-      width: 24px;
-      height: 24px;
-      display: inline-block;
-      transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-      flex-shrink: 0;
-      -moz-user-select: none;
-      color: rgba(0, 0, 0, 0.54);
-      margin-right: 16px;
-  }
-  .item {
-      flex: 1 1 auto;
-      padding: 0 16px;
-      min-width: 0;
-  }
-  .signOff {
-      width: 100%;
-      bottom: 0;
-      position: absolute;
-  }
-  .signOff .itemContainer {
-      background-color: #fafafa;
-  }
+    .container h1 {
+        margin: 16px 0;
+    }
+    .container-score-info {
+        margin: 1%;
+    }
 }
+
+/* 3. 352 px */
+@media only screen and (min-width: 352px){
+    .container-score-info{
+        margin-top: 10px;
+    }
+    .container-score-info p{
+        width: 50%;
+        display: inline-block;
+    }
+}
+
+/* 4. 464 px */
+@media only screen and (min-width: 464px) {
+    .container {
+        display: flow-root;
+    }
+    .container-info {
+        display: block;
+        width: 100%;
+    }
+    .container-score {
+        float: right;
+        display: block;
+        width: 100%;
+    }
+    .container-score-info {
+        width: 31%;
+        vertical-align: top;
+        display: inline-block;
+    }
+    .container-score-info p{
+        width: 100%;
+        display: block;
+    }
+}
+
+/* 5. 768 px */
 
 @media only screen and (min-width: 768px) {
+    /* 5.1. General stuff*/
+    h1 {
+        font-size: 1.3rem;
+    }
+    /* 5.2. Data of students */
+    .container {
+        display: flex;
+        width: auto;
+    }
+    .container-info {
+        display: inline-block;
+        width: 40%;
+    }
+    .container-info h1 {
+        margin: 0;
+    }
+    .container-score {
+        /* float: right; */
+        display: inline-block;
+        width: 60%;
+    }
+    /* h1 {
+        font-size: 1.31rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    h3,
+    h4 {
+        font-size: 0.98rem;
+    }
+    h4 {
+        font-size: 1.0rem;
+    }
     .column {
-        height: 100vh;
+        height: 100vh !important;
+        width: 230px;
+    }
+    .left-bar {
+        width: 230px;
+    }
+    .left-nav-bar {
+        display: block !important;
+    }
+    .menu {
+        display: none;
+    }
+    .information-container {
+        margin-left: 230px;
+        margin-top: 53px;
+    }
+    .tittle-container {
+        width: calc(100% - 230px);
+        top: 0;
+    }
+    .tittle {
+        min-height: 64px;
+    }
+    .search-sort {
+        width: calc(100% - 230px);
+        top: 63.5px;
+    }
+    .search-container form input {
+        width: 93%;
+        border: none;
+        background-color: #fafafa;
+    }
+    #open-sort-container{
+        top: 112px;
+    }
+    .container {
+        width: 100%;
+    }
+    .container-info {
+        display: inline-block;
+        width: 40%;
+    }
+    .container-score {
+        display: inline-block;
+        width: 60%;
+    }
+    .container-score-info {
+        display: inline-block;
+        width: 33%;
+    } */
+}
+
+/* 6. 1024 px */
+
+@media only screen and (min-width: 1024px) {
+    /* 6.1. General stuff */
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    h3,
+    h4 {
+        font-size: 1.1rem;
+    }
+    h4 {
+        font-size: 1.0rem;
+    }
+    /* 6.2. Data dashboard container */
+    .column {
+        height: 100vh !important;
         width: 320px;
     }
-    .leftBar {
-      width: 320px;
+    /* 6.2.1. Left navigation bar */
+    .left-bar {
+        width: 320px;
     }
-    .leftNavBar{
-      display: block !important;
+    .left-nav-bar {
+        display: block !important;
     }
-    .menu{
-      display: none;
-	}
-    .informationContainer{
-	  margin-left: 320px;
-	  margin-top: 53px;
+    .menu {
+        display: none;
     }
-    .tittleContainer{
-      width: calc(100% - 320px);
-      top: 0;
+    /* 6.2.2. Information of DATA DASHBOARD */
+    .information-container {
+        margin-left: 320px;
+        margin-top: 53px;
     }
-    .searchsort{
-      width: calc(100% - 320px);
-      top: 61.5px;
+    .tittle-container {
+        width: calc(100% - 320px);
+        top: 0;
     }
-    .searchContainer form input {
-      width: 93%;
-      border: none;
-      background-color: #fafafa;
-  }
-  	.container {
-        width: 70%;
+    .tittle {
+        min-height: 64px;
     }
-  
-}
-@media only screen and (min-width: 1024px) {
-	.container {
+    /* Search and sort container */
+    .search-sort {
+        width: calc(100% - 320px);
+        top: 63.5px;
+    }
+    .search-container form input {
+        width: 93%;
+        border: none;
+        background-color: #fafafa;
+    }
+    #open-sort-container {
+        top: 112px;
+        left: 320px;
+        width: calc(100% - 320px);
+    }
+    /* Video */
+    .video {
+        left: 320px;
+        width: calc(100% - 320px);
+    }
+    .video video{
         width: 80%;
+        height: 80%; 
     }
 }

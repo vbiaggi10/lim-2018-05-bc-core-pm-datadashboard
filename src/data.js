@@ -1,97 +1,171 @@
-/* window.computeUsersStats = (users, progress, courses) => {
-    const listOfUser = users.map();
-
-} */
+// FUNCTION 1 computeUsersStats(users, progress, courses)
 window.computeUsersStats = (users, progress, courses) => {
-  //Esta función es la responsable de "crear" la lista de usuarios (estudiantes) que vamos a "pintar" en la pantalla.
-  const userList = users.maps((userWithStats) => {
-    userWithStats.stats = {
-      percent: coursesProm(progress[userWithStats.id], courses),
-      exercises: {
-        total: totalExcercises(progress[userWithStats.id], courses),
-        completed: completedExcercises(progress[userWithStats.id], courses),
-        percent: percentExcercises(progress[userWithStats.id], courses)
-      },
-      reads: {
-        total: totalReads(progress[userWithStats.id], courses),
-        completed: completedReads(progress[userWithStats.id], courses),
-        percent: percentReads(progress[userWithStats.id], courses)
-      },
-      quizzes: {
-        total: totalQuizzes(progress[userWithStats.id], courses),
-        completed: completedQuizzes(progress[userWithStats.id], courses),
-        percent: percentQuizzes(progress[userWithStats.id], courses),
-        scoreSum: scoreSumQuizzes(progress[userWithStats.id], courses),
-        scoreAvg: scoreAvgQuizzes(progress[userWithStats.id], courses)
+  let usersWithStats = users.map(
+    (user) => {
+      courses = progress[user.id]
+      if (courses.hasOwnProperty('intro')) {
+        let intro = courses.intro;
+        let exerciseTotal = 0;
+        let exercisesCompleted = 0;
+        let readsTotal = 0;
+        let readsCompleted = 0;
+        let quizzesTotal = 0;
+        let quizzesCompleted = 0;
+        let quizzesScoreSum = 0;
+        Object.values(intro.units).forEach(unit => {
+          Object.values(unit.parts).forEach(part => {
+
+            if (part.hasOwnProperty('exercises')) {
+              Object.values(part.exercises).forEach(exercise => {
+                exerciseTotal += 1;
+                if (part.completed == 1) {
+                  exercisesCompleted += 1;
+                }
+              })
+            } else if (part.type === 'read') {
+              readsTotal += 1;
+              if (part.completed == 1) {
+                readsCompleted += 1;
+              }
+            } else if (part.type === 'quiz') {
+              quizzesTotal += 1;
+              if (part.completed == 1) {
+                quizzesCompleted += 1;
+                quizzesScoreSum += part.score;
+              }
+            }
+          });
+        });
+
+        let stats = {
+          percent: courses.intro.percent,
+          exercises: {
+            total: exerciseTotal,
+            completed: exercisesCompleted,
+            percent: Math.round((exercisesCompleted / exerciseTotal) * 100)
+          },
+          reads: {
+            total: readsTotal,
+            completed: readsCompleted,
+            percent: Math.round((readsCompleted / readsTotal) * 100)
+          },
+          quizzes: {
+            total: quizzesTotal,
+            completed: quizzesCompleted,
+            percent: Math.round((quizzesCompleted / quizzesTotal) * 100),
+            scoreSum: quizzesScoreSum,
+            scoreAvg: Math.round(quizzesScoreSum / quizzesCompleted)
+          }
+        };
+        user.stats = stats;
+        return user;
+      } else {
+        let stats = {
+          percent: 0,
+          exercises: {
+            total: 0,
+            completed: 0,
+            percent: 0
+          },
+          reads: {
+            total: 0,
+            completed: 0,
+            percent: 0
+          },
+          quizzes: {
+            total: 0,
+            completed: 0,
+            percent: 0,
+            scoreSum: 0,
+            scoreAvg: 0
+          }
+        }
+        user.stats = stats;
+        return user;
       }
+
     }
-    return userWithStats;
-  })
-  return userList;
+  );
+  return usersWithStats;
 }
+
+// FUNCTION 2 sortUsers(users, orderBy, orderDirection)
 window.sortUsers = (users, orderBy, orderDirection) => {
-  /* */
+  let usersSorted = Object.values(users).sort(
+    (x, y) => {
+      let auxSort1;
+      let auxSort2;
+
+      sortHelper = (field1, field2) => {
+        if (x.hasOwnProperty('stats')) {
+          auxSort1 = x.stats[field1][field2];
+        }
+        if (y.hasOwnProperty('stats')) {
+          auxSort2 = y.stats[field1][field2];
+        }
+      }
+
+      const optionsSortUsers = {
+        'sort-by': () => {
+          auxSort1 = x;
+          auxSort2 = y;
+        },
+        'name': () => {
+          auxSort1 = x.name.toLowerCase();
+          auxSort2 = y.name.toLowerCase();
+        },
+        'total-percent': () => {
+          if (x.hasOwnProperty('stats')) {
+            auxSort1 = x.stats.percent;
+          }
+          if (y.hasOwnProperty('stats')) {
+            auxSort2 = y.stats.percent;
+          }
+        },
+        'exercise-percent': () => {
+          sortHelper('exercises', 'percent')
+        },
+        'quizzes-percent': () => {
+          sortHelper('quizzes', 'percent')
+        },
+        'quizzes-average': () => {
+          sortHelper('quizzes', 'scoreAvg')
+        },
+        'reads-percent': () => {
+          sortHelper('reads', 'percent')
+        },
+      }
+
+      optionsSortUsers[orderBy]();
+
+      const direccion = orderDirection === 'DESC' ? -1 : 1;
+      if (auxSort1 > auxSort2) {
+        return 1 * direccion;
+      } else if (auxSort1 < auxSort2) {
+        return -1 * direccion;
+      } else {
+        return 0;
+      }
+    });
+
+  return usersSorted;
+
 }
+
+// FUNCTION 3 filterUsers(users, search)
 window.filterUsers = (users, search) => {
-  /* */
+  let usersFiltered = Object.values(users).filter(
+    userFilter =>
+      userFilter.name.toLowerCase().indexOf(search.toLowerCase()) > -1
+  )
+  return usersFiltered;
 }
+
+// FUNCTION 4 processCohortData(options)
 window.processCohortData = (options) => {
-  /*options = {
-    cohort:  
-    cohortData = {
-      users: 
-      progress:  
-    } , 
-    orderBy: ,
-    orderDirection: ,
-    search:  
-  }*/ 
+  // let courses = options.cohort.coursesIndex;
+  let computedData = computeUsersStats(options.cohortData.users, options.cohortData.progress, options.cohort);
+  let filteredData = filterUsers(computedData, options.search)
+  let sortedData = sortUsers(filteredData, options.orderBy, options.orderDirection);
+  return sortedData;
 }
-function coursesProm(progress, courses) {//var courses = ["intro"]
-  let cont = 0;
-  courses.forEach(curso => {//método forEach() ejecuta la función indicada una vez por cada elemento del array *parámetro [curso]*
-    cont += progress[curso].percent;//percent es una propiedad tipo number dentro de var=progress
-  });
-  return cont;
-}
-console.log(typeof (window.computeUsersStats));
-console.log(typeof (computeUsersStats.users));
-
-
-window.computeUsersStats = (users, progress, courses) => {//función responsable de "crear" la lista de usuarios (estudiantes) que vamos a "pintar" en la pantalla
-  const lista = users.map((usersWithStats) => {//método map() crea un nuevo array con los resultados de la llamada a la función 
-    usersWithStats.stats = {//arreglo de objetos usersWithStats con la propiedad stats
-      percent: promedioCursos(progress[usersWithStats.id], courses),//propiedad "id" dentro de variable user
-      exercises: {
-        total: totalExcercises(progress[usersWithStats.id], courses),
-      },
-    }
-    return usersWithStats
-  })
-  return lista
-}
-
-function promedioCursos(progress, courses) {//var courses = ["intro"]
-  let contador = 0;
-  courses.forEach(curso => {//método forEach() ejecuta la función indicada una vez por cada elemento del array *parámetro [curso]*
-    contador += progress[curso].percent;//percent es una propiedad tipo number dentro de var=progress
-  });
-  return contador;
-}
-
-function totalExcercises(progress, courses) {//var courses = ["intro"]
-  let total = 0;
-  courses.forEach(curso => {//units es una propiedad de la variable progress dentro de la propiedad intro
-    Object.values(progress[curso].units).forEach(unit => {//método Object.values() devuelve un array que contiene los valores de las propiedades enumerables de un objeto dado
-      let partes = Object.values(unit.parts).filter(ejercicio => ejercicio.hasOwnProperty("exercises"));//propiedad "exercises" dentro de var=progress
-      partes.forEach((parte) => {//método hasOwnProperty() devuelve un booleano indicando si el objeto tiene la propiedad especificada
-        total += Object.values(parte.exercises).length;//parts es una propiedad dentro de units dentro de intro dentro de la variable
-      })
-    })
-  })
-  return total;
-}
-
-var pieceUsersData = window.computeUsersStats(users, progress, courses)
-console.log(pieceUsersData)
-document.getElementById("demo").innerHTML = pieceUsersData;
