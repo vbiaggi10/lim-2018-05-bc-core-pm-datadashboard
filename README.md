@@ -194,11 +194,7 @@ Al pensar cómo hacer esta función, el primer paso fue llamar a la función _co
 
 Para realizar los test, ingresamos valores específicos y reales de acuerdo a la data para asignarlos a las funciones y así obtengamos una respuesta que nos ayude a saber si las funcionalidad está correcta. 
 
-<<<<<<< HEAD
-[Link a Data Dashboard](https://dodamaticorena.github.io/lim-2018-05-bc-core-pm-datadashboard/src/)
-=======
 ## Trabajo del proyecto
->>>>>>> 11ca775313e870962f7873f3d1508f01c968d1e0
 
 #### Comunicación
 
