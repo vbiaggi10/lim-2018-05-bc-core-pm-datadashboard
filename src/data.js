@@ -1,31 +1,100 @@
-const userData = document.querySelector('.studentsContainer');
-fetch('http://127.0.0.1:5500/data/cohorts/lim-2018-03-pre-core-pw/users.json')
-    .then(function (responseUsers) {
-        return responseUsers.json();
-    })
-    .then(function (dataUser) {
-        functionUser(dataUser);
-    });
-function functionUser(intento) {
-    let tamaño = intento.length;
-    for (let i = 0; i < tamaño; i++) {
-        let myName = document.createElement('h1');
-        let myID = document.createElement('p');
-        let myRole = document.createElement('p');
-        let container = document.createElement('div');
-        let photo = document.createElement('img');
-        let img = 'img/woman.png';
-        photo.setAttribute('src',img);
-        container.classList.add('container');
-        myName.textContent = intento[i].name;
-        myID.textContent = 'ID: ' + intento[i].id;
-        myRole.textContent = 'Role: ' + intento[i].role;
-        container.appendChild(photo);
-        container.appendChild(myName);
-        container.appendChild(myID);
-        container.appendChild(myRole);
-        
-        userData.appendChild(container);
+// FUNCTION 1 computeUsersStats(users, progress, courses)
+window.computeUsersStats = (users, progress, courses) => {
+  console.log(courses)
+  let usersWithStats = users.map(
+    (user) => {
+      //console.log(courses)
+      courses = progress[user.id]
+      if (courses.hasOwnProperty('intro')) {
+        let intro = courses.intro;
+        let exerciseTotal = 0;
+        let exercisesCompleted = 0;
+        let readsTotal = 0;
+        let readsCompleted = 0;
+        let quizzesTotal = 0;
+        let quizzesCompleted = 0;
+        let quizzesScoreSum = 0;
+        Object.values(intro.units).forEach(unit => {
+          Object.values(unit.parts).forEach(part => {
+
+            if (part.hasOwnProperty('exercises')) {
+              Object.values(part.exercises).forEach(exercise => {
+                exerciseTotal += 1;
+                if (part.completed == 1) {
+                  exercisesCompleted += 1;
+                }
+              })
+            } else if (part.type === 'read') {
+              readsTotal += 1;
+              if (part.completed == 1) {
+                readsCompleted += 1;
+              }
+            } else if (part.type === 'quiz') {
+              quizzesTotal += 1;
+              if (part.completed == 1) {
+                quizzesCompleted += 1;
+                quizzesScoreSum += part.score;
+              }
+            }
+          });
+        });
+
+        let stats = {
+          percent: courses.intro.percent,
+          exercises: {
+            total: exerciseTotal,
+            completed: exercisesCompleted,
+            percent: Math.round((exercisesCompleted / exerciseTotal) * 100)
+          },
+          reads: {
+            total: readsTotal,
+            completed: readsCompleted,
+            percent: Math.round((readsCompleted / readsTotal) * 100)
+          },
+          quizzes: {
+            total: quizzesTotal,
+            completed: quizzesCompleted,
+            percent: Math.round((quizzesCompleted / quizzesTotal) * 100),
+            scoreSum: quizzesScoreSum,
+            scoreAvg: Math.round(quizzesScoreSum / quizzesCompleted)
+          }
+        };
+        user.stats = stats;
+        return user;
+      } else {
+        let stats = {
+          percent: 0,
+          exercises: {
+            total: 0,
+            completed: 0,
+            percent: 0
+          },
+          reads: {
+            total: 0,
+            completed: 0,
+            percent: 0
+          },
+          quizzes: {
+            total: 0,
+            completed: 0,
+            percent: 0,
+            scoreSum: 0,
+            scoreAvg: 0
+          }
+        }
+        user.stats = stats;
+        return user;
+      }
 
     }
+  );
+  return usersWithStats;
+}
+
+// FUNCTION 4 processCohortData(options)
+window.processCohortData = (options) => {
+  let computedData = computeUsersStats(options.cohortData.users, options.cohortData.progress, options.cohort);
+  let sortedData = sortUsers(computedData, options.orderBy, options.orderDirection);
+  let filteredData = filterUsers(sortedData, options.search)
+  return filteredData;
 }
