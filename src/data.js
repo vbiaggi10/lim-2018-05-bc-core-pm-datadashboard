@@ -1,9 +1,7 @@
 // FUNCTION 1 computeUsersStats(users, progress, courses)
 window.computeUsersStats = (users, progress, courses) => {
-  console.log(courses)
   let usersWithStats = users.map(
     (user) => {
-      //console.log(courses)
       courses = progress[user.id]
       if (courses.hasOwnProperty('intro')) {
         let intro = courses.intro;
@@ -97,7 +95,8 @@ window.sortUsers = (users, orderBy, orderDirection) => {
     (x, y) => {
       let auxSort1;
       let auxSort2;
-      const sortHelper = (field1, field2) => {
+
+      sortHelper = (field1, field2) => {
         if (x.hasOwnProperty('stats')) {
           auxSort1 = x.stats[field1][field2];
         }
@@ -106,7 +105,11 @@ window.sortUsers = (users, orderBy, orderDirection) => {
         }
       }
 
-      const opciones = {
+      const optionsSortUsers = {
+        'sort-by': () => {
+          auxSort1 = x;
+          auxSort2 = y;
+        },
         'name': () => {
           auxSort1 = x.name.toLowerCase();
           auxSort2 = y.name.toLowerCase();
@@ -133,7 +136,7 @@ window.sortUsers = (users, orderBy, orderDirection) => {
         },
       }
 
-      opciones[orderBy]();
+      optionsSortUsers[orderBy]();
 
       const direccion = orderDirection === 'DESC' ? -1 : 1;
       if (auxSort1 > auxSort2) {
@@ -160,6 +163,7 @@ window.filterUsers = (users, search) => {
 
 // FUNCTION 4 processCohortData(options)
 window.processCohortData = (options) => {
+  // let courses = options.cohort.coursesIndex;
   let computedData = computeUsersStats(options.cohortData.users, options.cohortData.progress, options.cohort);
   let filteredData = filterUsers(computedData, options.search)
   let sortedData = sortUsers(filteredData, options.orderBy, options.orderDirection);
