@@ -91,6 +91,64 @@ window.computeUsersStats = (users, progress, courses) => {
   return usersWithStats;
 }
 
+// FUNCTION 2 sortUsers(users, orderBy, orderDirection)
+window.sortUsers = (users, orderBy, orderDirection) => {
+  let usersSorted = Object.values(users).sort(
+    (x, y) => {
+      let auxSort1;
+      let auxSort2;
+      const sortHelper = (field1, field2) => {
+        if (x.hasOwnProperty('stats')) {
+          auxSort1 = x.stats[field1][field2];
+        }
+        if (y.hasOwnProperty('stats')) {
+          auxSort2 = y.stats[field1][field2];
+        }
+      }
+
+      const opciones = {
+        'name': () => {
+          auxSort1 = x.name.toLowerCase();
+          auxSort2 = y.name.toLowerCase();
+        },
+        'total-percent': () => {
+          if (x.hasOwnProperty('stats')) {
+            auxSort1 = x.stats.percent;
+          }
+          if (y.hasOwnProperty('stats')) {
+            auxSort2 = y.stats.percent;
+          }
+        },
+        'exercise-percent': () => {
+          sortHelper('exercises', 'percent')
+        },
+        'quizzes-percent': () => {
+          sortHelper('quizzes', 'percent')
+        },
+        'quizzes-average': () => {
+          sortHelper('quizzes', 'scoreAvg')
+        },
+        'reads-percent': () => {
+          sortHelper('reads', 'percent')
+        },
+      }
+
+      opciones[orderBy]();
+
+      const direccion = orderDirection === 'DESC' ? -1 : 1;
+      if (auxSort1 > auxSort2) {
+        return 1 * direccion;
+      } else if (auxSort1 < auxSort2) {
+        return -1 * direccion;
+      } else {
+        return 0;
+      }
+    });
+
+  return usersSorted;
+
+}
+
 // FUNCTION 3 filterUsers(users, search)
 window.filterUsers = (users, search) => {
   let usersFiltered = Object.values(users).filter(
