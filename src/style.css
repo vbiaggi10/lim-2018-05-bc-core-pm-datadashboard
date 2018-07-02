@@ -302,6 +302,9 @@
         background-color: #fafafa;
         height: 30px;
     }
+    .search-img{
+        margin-right: 1%;
+    }
     .sort-container {
         width: 10%;
         margin: 0.5% 0.3% 0.5% 0.3%;
