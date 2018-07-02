@@ -91,10 +91,19 @@ window.computeUsersStats = (users, progress, courses) => {
   return usersWithStats;
 }
 
+// FUNCTION 3 filterUsers(users, search)
+window.filterUsers = (users, search) => {
+  let usersFiltered = Object.values(users).filter(
+    userFilter =>
+      userFilter.name.toLowerCase().indexOf(search.toLowerCase()) > -1
+  )
+  return usersFiltered;
+}
+
 // FUNCTION 4 processCohortData(options)
 window.processCohortData = (options) => {
   let computedData = computeUsersStats(options.cohortData.users, options.cohortData.progress, options.cohort);
-  let sortedData = sortUsers(computedData, options.orderBy, options.orderDirection);
-  let filteredData = filterUsers(sortedData, options.search)
-  return filteredData;
+  let filteredData = filterUsers(computedData, options.search)
+  let sortedData = sortUsers(filteredData, options.orderBy, options.orderDirection);
+  return sortedData;
 }
