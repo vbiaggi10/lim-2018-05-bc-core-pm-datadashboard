@@ -37,12 +37,10 @@ document.querySelector("#sort-img").addEventListener("click", () => {
   let scrollInfo = document.querySelector(".information-container");
   // margin-top: 300px;
   if (auxSort === 1) {
-    console.log("open");
     openSortContainer.style.display = "block";
     scrollInfo.style = "margin-top: 200px";
     auxSort = 0;
   } else {
-    console.log("close");
     openSortContainer.style.display = "none";
     scrollInfo.style = "margin-top: 100px";
     auxSort = 1;
@@ -113,7 +111,6 @@ const getCohorts = (nameOfCohort, cohorts) => {
 
 listCohorts.addEventListener("change", e => {
   const cohortName = e.target.value;
-  console.log(cohortName)
   options.cohort = cohortName;
   extractJSON(
     cohortName,
@@ -124,13 +121,11 @@ listCohorts.addEventListener("change", e => {
 
 const getUsers = (nameOfCohort, users) => {
   options.cohortData.users = users;
-  console.log(users)
   extractJSON(nameOfCohort, `https://api.laboratoria.la/cohorts/${nameOfCohort}/progress/`, getProgress)
 };
 
 const getProgress = (nameOfCohort, progress) =>{
   options.cohortData.progress = progress;
-  console.log(progress)
   // const studentsStats = processCohortData(options);
   aunnotienenombre(nameOfCohort);
   // pintarData(nameOfCohort)
